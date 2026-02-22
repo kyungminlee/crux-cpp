@@ -80,6 +80,23 @@ inline std::string parent_class(const clang::FunctionDecl *fd) {
     return {};
 }
 
+// ── Decl kind ────────────────────────────────────────────────────────────────
+
+// Returns a string describing the concrete kind of a function-like decl.
+// is_template is true when the decl is the templated function of a
+// FunctionTemplateDecl (i.e. the primary template, not a specialization).
+inline std::string decl_kind(const clang::FunctionDecl *fd, bool is_template) {
+    if (llvm::isa<clang::CXXConstructorDecl>(fd))
+        return is_template ? "ConstructorTemplate" : "Constructor";
+    if (llvm::isa<clang::CXXDestructorDecl>(fd))
+        return is_template ? "DestructorTemplate"  : "Destructor";
+    if (llvm::isa<clang::CXXConversionDecl>(fd))
+        return is_template ? "ConversionTemplate"  : "ConversionFunction";
+    if (llvm::isa<clang::CXXMethodDecl>(fd))
+        return is_template ? "CXXMethodTemplate"   : "CXXMethod";
+    return     is_template ? "FunctionTemplate"    : "Function";
+}
+
 // ── Argument parsing ──────────────────────────────────────────────────────────
 
 struct Args {

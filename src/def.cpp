@@ -16,9 +16,11 @@ class DefVisitor : public clang::RecursiveASTVisitor<DefVisitor> {
         const std::string file = expansion_file(sm_, fd->getBeginLoc());
         if (!under_root(file, root_))
             return;
+        const bool is_tmpl = llvm::isa<clang::FunctionTemplateDecl>(decl_for_usr);
         std::cout
             << get_usr(decl_for_usr)                        << '\t'
             << fd->getQualifiedNameAsString()               << '\t'
+            << decl_kind(fd, is_tmpl)                       << '\t'
             << parent_class(fd)                             << '\t'
             << access_str(fd->getAccess())                  << '\t'
             << fs::relative(file, root_).string()           << '\t'
@@ -77,7 +79,7 @@ public:
 
 int main(int argc, char *argv[]) {
     try {
-        std::cout << "usr\tfully_qualified_name\tclass\tvisibility\tfilename\tstart_line\tend_line\n";
+        std::cout << "usr\tfully_qualified_name\tkind\tclass\tvisibility\tfilename\tstart_line\tend_line\n";
         return run_tool(argc, argv, [](const fs::path &root) {
             return std::make_unique<DefAction>(root);
         });
