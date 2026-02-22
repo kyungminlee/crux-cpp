@@ -21,7 +21,7 @@ class DefVisitor : public clang::RecursiveASTVisitor<DefVisitor> {
             << fd->getQualifiedNameAsString()               << '\t'
             << parent_class(fd)                             << '\t'
             << access_str(fd->getAccess())                  << '\t'
-            << file                                         << '\t'
+            << fs::relative(file, root_).string()           << '\t'
             << expansion_line(sm_, fd->getBeginLoc())       << '\t'
             << expansion_line(sm_, fd->getEndLoc())         << '\n';
     }
