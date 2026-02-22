@@ -5,6 +5,7 @@
 #include "clang/AST/RecursiveASTVisitor.h"
 
 #include <iostream>
+#include <set>
 #include <vector>
 
 // Extracts caller-callee USR pairs for all call expressions inside function
@@ -20,14 +21,17 @@ class CallVisitor : public clang::RecursiveASTVisitor<CallVisitor> {
     const clang::SourceManager &sm_;
     const fs::path &root_;
     std::vector<std::string> caller_stack_;
+    std::set<std::string> &seen_;
 
     void emit(const clang::Decl *callee_decl) {
         if (caller_stack_.empty()) return;
         const std::string &caller = caller_stack_.back();
         if (caller.empty()) return;
         std::string callee = get_usr(callee_decl);
-        if (!callee.empty())
-            std::cout << caller << '\t' << callee << '\n';
+        if (callee.empty()) return;
+        const std::string row = caller + '\t' + callee;
+        if (seen_.insert(row).second)
+            std::cout << row << '\n';
     }
 
     // Push usr, call traverse(decl), pop.
@@ -54,8 +58,9 @@ class CallVisitor : public clang::RecursiveASTVisitor<CallVisitor> {
     }
 
 public:
-    CallVisitor(const clang::SourceManager &sm, const fs::path &root)
-        : sm_(sm), root_(root) {}
+    CallVisitor(const clang::SourceManager &sm, const fs::path &root,
+                std::set<std::string> &seen)
+        : sm_(sm), root_(root), seen_(seen) {}
 
     bool shouldVisitTemplateInstantiations() const { return true; }
 
@@ -116,31 +121,36 @@ public:
 
 class CallConsumer : public clang::ASTConsumer {
     const fs::path &root_;
+    std::set<std::string> &seen_;
 public:
-    explicit CallConsumer(const fs::path &root) : root_(root) {}
+    CallConsumer(const fs::path &root, std::set<std::string> &seen)
+        : root_(root), seen_(seen) {}
 
     void HandleTranslationUnit(clang::ASTContext &ctx) override {
-        CallVisitor v(ctx.getSourceManager(), root_);
+        CallVisitor v(ctx.getSourceManager(), root_, seen_);
         v.TraverseDecl(ctx.getTranslationUnitDecl());
     }
 };
 
 class CallAction : public clang::ASTFrontendAction {
     fs::path root_;
+    std::set<std::string> &seen_;
 public:
-    explicit CallAction(fs::path root) : root_(std::move(root)) {}
+    CallAction(fs::path root, std::set<std::string> &seen)
+        : root_(std::move(root)), seen_(seen) {}
 
     std::unique_ptr<clang::ASTConsumer>
     CreateASTConsumer(clang::CompilerInstance &, llvm::StringRef) override {
-        return std::make_unique<CallConsumer>(root_);
+        return std::make_unique<CallConsumer>(root_, seen_);
     }
 };
 
 int main(int argc, char *argv[]) {
     try {
+        std::set<std::string> seen;
         std::cout << "caller_usr\tcallee_usr\n";
-        return run_tool(argc, argv, [](const fs::path &root) {
-            return std::make_unique<CallAction>(root);
+        return run_tool(argc, argv, [&seen](const fs::path &root) {
+            return std::make_unique<CallAction>(root, seen);
         });
     } catch (const std::exception &e) {
         std::cerr << "error: " << e.what() << '\n';
