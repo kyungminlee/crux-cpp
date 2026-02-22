@@ -105,6 +105,8 @@ inline Args parse_args(int argc, char *argv[]) {
     if (a.build_dir.empty()) throw std::runtime_error("--build is required");
     if (a.root_dir.empty())  throw std::runtime_error("--root is required");
     if (a.sources.empty())   throw std::runtime_error("at least one source file is required");
+    a.build_dir = fs::absolute(a.build_dir);
+    a.root_dir  = fs::absolute(a.root_dir);
     return a;
 }
 
