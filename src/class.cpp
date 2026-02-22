@@ -44,8 +44,9 @@ public:
             const std::string parent_usr = get_usr(base_decl);
             if (parent_usr.empty()) continue;
 
-            const std::string row = usr + '\t' + parent_usr + '\t'
-                                  + access_str(base.getAccessSpecifier());
+            const std::string row = csv_field(usr) + ','
+                                  + csv_field(parent_usr) + ','
+                                  + csv_field(access_str(base.getAccessSpecifier()));
             if (seen_.insert(row).second)
                 std::cout << row << '\n';
         }
@@ -82,7 +83,7 @@ public:
 int main(int argc, char *argv[]) {
     try {
         std::set<std::string> seen;
-        std::cout << "usr\tparent_usr\tvisibility\n";
+        std::cout << "usr,parent_usr,visibility\n";
         return run_tool(argc, argv, [&seen](const fs::path &root) {
             return std::make_unique<ClassAction>(root, seen);
         });

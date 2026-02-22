@@ -59,6 +59,24 @@ std::string parent_class(const clang::FunctionDecl *fd);
 // FunctionTemplateDecl (i.e. the primary template, not a specialization).
 std::string decl_kind(const clang::FunctionDecl *fd, bool is_template);
 
+// ── CSV output ────────────────────────────────────────────────────────────────
+
+// Quotes a field if it contains a comma, double-quote, or newline.
+// Embedded double-quotes are escaped by doubling them (RFC 4180).
+inline std::string csv_field(const std::string &s) {
+    if (s.find_first_of(",\"\n") == std::string::npos)
+        return s;
+    std::string out;
+    out.reserve(s.size() + 2);
+    out += '"';
+    for (char c : s) {
+        if (c == '"') out += '"';  // double the quote
+        out += c;
+    }
+    out += '"';
+    return out;
+}
+
 // ── Argument parsing ──────────────────────────────────────────────────────────
 
 struct Args {

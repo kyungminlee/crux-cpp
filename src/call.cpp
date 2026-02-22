@@ -29,7 +29,7 @@ class CallVisitor : public clang::RecursiveASTVisitor<CallVisitor> {
         if (caller.empty()) return;
         std::string callee = get_usr(callee_decl);
         if (callee.empty()) return;
-        const std::string row = caller + '\t' + callee;
+        const std::string row = csv_field(caller) + ',' + csv_field(callee);
         if (seen_.insert(row).second)
             std::cout << row << '\n';
     }
@@ -148,7 +148,7 @@ public:
 int main(int argc, char *argv[]) {
     try {
         std::set<std::string> seen;
-        std::cout << "caller_usr\tcallee_usr\n";
+        std::cout << "caller_usr,callee_usr\n";
         return run_tool(argc, argv, [&seen](const fs::path &root) {
             return std::make_unique<CallAction>(root, seen);
         });

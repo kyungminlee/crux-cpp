@@ -12,7 +12,7 @@ class DefVisitor : public clang::RecursiveASTVisitor<DefVisitor> {
     const fs::path &root_;
     std::set<std::string> &seen_;
 
-    // Emit one TSV row.
+    // Emit one CSV row.
     // decl_for_usr: FunctionTemplateDecl for primary templates, FunctionDecl otherwise.
     void emit(const clang::FunctionDecl *fd, const clang::Decl *decl_for_usr) {
         const std::string file = expansion_file(sm_, fd->getBeginLoc());
@@ -20,13 +20,13 @@ class DefVisitor : public clang::RecursiveASTVisitor<DefVisitor> {
             return;
         const bool is_tmpl = llvm::isa<clang::FunctionTemplateDecl>(decl_for_usr);
         const std::string row =
-            get_usr(decl_for_usr)                        + '\t'
-            + fd->getQualifiedNameAsString()             + '\t'
-            + decl_kind(fd, is_tmpl)                     + '\t'
-            + parent_class(fd)                           + '\t'
-            + access_str(fd->getAccess())                + '\t'
-            + fs::relative(file, root_).string()         + '\t'
-            + std::to_string(expansion_line(sm_, fd->getBeginLoc())) + '\t'
+            csv_field(get_usr(decl_for_usr))                             + ','
+            + csv_field(fd->getQualifiedNameAsString())                  + ','
+            + csv_field(decl_kind(fd, is_tmpl))                          + ','
+            + csv_field(parent_class(fd))                                + ','
+            + csv_field(access_str(fd->getAccess()))                     + ','
+            + csv_field(fs::relative(file, root_).string())              + ','
+            + std::to_string(expansion_line(sm_, fd->getBeginLoc()))     + ','
             + std::to_string(expansion_line(sm_, fd->getEndLoc()));
         if (seen_.insert(row).second)
             std::cout << row << '\n';
@@ -89,7 +89,7 @@ public:
 int main(int argc, char *argv[]) {
     try {
         std::set<std::string> seen;
-        std::cout << "usr\tfully_qualified_name\tkind\tclass\tvisibility\tfilename\tstart_line\tend_line\n";
+        std::cout << "usr,fully_qualified_name,kind,class,visibility,filename,start_line,end_line\n";
         return run_tool(argc, argv, [&seen](const fs::path &root) {
             return std::make_unique<DefAction>(root, seen);
         });
