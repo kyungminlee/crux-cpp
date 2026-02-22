@@ -7,9 +7,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Requires Homebrew LLVM (`brew install llvm`).
 
 ```bash
-cmake -B build -DCMAKE_PREFIX_PATH=$(brew --prefix llvm)
+cmake -B build \
+  -DCMAKE_PREFIX_PATH=$(brew --prefix llvm) \
+  -DCMAKE_CXX_COMPILER=$(brew --prefix llvm)/bin/clang++ \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 cmake --build build
 ```
+
+`-DCMAKE_CXX_COMPILER` is required (not just `CMAKE_PREFIX_PATH`) so that `compile_commands.json` records Homebrew's `clang++` as the compiler. `-DCMAKE_EXPORT_COMPILE_COMMANDS=ON` is needed to enable self-testing with `def`/`call`.
+
+`CMakeLists.txt` automatically queries the compiler for its `-resource-dir` and the SDK path via `xcrun`, and embeds them in the compile flags. This is necessary because LibTooling resolves the resource directory relative to its own binary path, not the LLVM installation, so without those flags `<cassert>` and system math constants would be missing when re-parsing project sources.
 
 Binaries are output to `build/def` and `build/call`.
 
