@@ -15,7 +15,7 @@ import re
 import sqlite3
 import sys
 
-from summary import summary_update
+from .summary import summary_update
 
 
 def _mock(prompt: str) -> str:

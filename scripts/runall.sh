@@ -14,7 +14,6 @@ set -euo pipefail
 
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 BIN_DIR="$SCRIPT_DIR/../build/cppsrc"
-PY_DIR="$SCRIPT_DIR/../pysrc"
 
 usage() {
     echo "usage: $(basename "$0") -B DIR -S DIR -o DB [-W DIR]" >&2
@@ -75,7 +74,7 @@ for tool in def call class; do
 done
 
 # Load all three CSVs into the output database.
-python3 "$PY_DIR/load.py" "$OUTPUT_DB" \
+python3 -m crux_cpp.load "$OUTPUT_DB" \
     --def   "$WORK_DIR/def.csv"   \
     --root  "$ROOT_DIR"           \
     --call  "$WORK_DIR/call.csv"  \

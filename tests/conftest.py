@@ -1,4 +1,1 @@
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).parent.parent / "pysrc"))
+# crux_cpp is an installable package; no sys.path manipulation needed.

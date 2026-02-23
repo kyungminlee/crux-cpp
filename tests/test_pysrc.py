@@ -1,5 +1,5 @@
 """
-Tests for the Python modules in pysrc/:
+Tests for the crux_cpp Python package:
   summary.py  – tarjan_sccs, build_prompt, summary_update
   topo.py     – tarjan_sccs  (independent copy; same algorithm)
   mock_summarize.py – _mock
@@ -13,12 +13,12 @@ import sqlite3
 
 import pytest
 
-import summary as summary_mod
-import topo as topo_mod
-from fetch import fetch_function
-from load import load_csv, load_def_csv, read_source_text
-from mock_summarize import _mock
-from summary import build_prompt, summary_update, tarjan_sccs
+import crux_cpp.summary as summary_mod
+import crux_cpp.topo as topo_mod
+from crux_cpp.fetch import fetch_function
+from crux_cpp.load import load_csv, load_def_csv, read_source_text
+from crux_cpp.mock_summarize import _mock
+from crux_cpp.summary import build_prompt, summary_update, tarjan_sccs
 
 
 # ── Fixtures ──────────────────────────────────────────────────────────────────

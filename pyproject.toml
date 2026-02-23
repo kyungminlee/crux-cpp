@@ -1,12 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "crux-cpp"
 version = "0.1.0"
-description = "Add your description here"
+description = "Extract and query C++ call graphs, class hierarchies, and function definitions"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
+dependencies = []
+
+[project.scripts]
+crux-load          = "crux_cpp.load:main"
+crux-topo          = "crux_cpp.topo:main"
+crux-fetch         = "crux_cpp.fetch:main"
+crux-mock-summarize = "crux_cpp.mock_summarize:main"
+
+[dependency-groups]
+dev = [
     "pytest>=9.0.2",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["crux_cpp"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
