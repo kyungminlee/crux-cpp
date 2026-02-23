@@ -11,12 +11,11 @@ set(SIMPLE_SRCS
 # compile_commands.json must use a clang++ that LibTooling understands natively, so
 # that system headers (e.g. <cmath>) are found when re-parsing. The sub-project is
 # only configured (never built), so the clang++/libstdc++ linker path issue is moot.
-find_program(SIMPLE_CXX clang++ HINTS "${LLVM_ROOT}/bin" NO_DEFAULT_PATH REQUIRED)
 execute_process(
     COMMAND ${CMAKE_COMMAND}
         -B "${SIMPLE_BUILD}"
         -S "${SIMPLE_SRC}"
-        -DCMAKE_CXX_COMPILER=${SIMPLE_CXX}
+        -DCMAKE_CXX_COMPILER=${CLANG_CXX_COMPILER}
         -DCMAKE_TRY_COMPILE_TARGET_TYPE=STATIC_LIBRARY
         -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     OUTPUT_QUIET
