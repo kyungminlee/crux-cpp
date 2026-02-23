@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Fetch function details from the extract-cpp database.
+Fetch function details from the crux-cpp database.
 
 Usage:
     fetch.py <database> <USR> [USR ...]
@@ -44,7 +44,7 @@ def fetch_function(conn: sqlite3.Connection, usr: str) -> dict | None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Fetch function details from the extract-cpp database.")
+        description="Fetch function details from the crux-cpp database.")
     parser.add_argument("database", help="SQLite3 database file")
     parser.add_argument("usrs", nargs="+", metavar="USR",
                         help="Unified Symbol References to look up")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Load extract-cpp CSV files into a SQLite3 database.
+Load crux-cpp CSV files into a SQLite3 database.
 
 Usage:
     load.py <database> [--def FILE --root DIR] [--call FILE] [--class FILE]
@@ -138,7 +138,7 @@ def load_csv(conn: sqlite3.Connection, path: Path, table: str) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Load extract-cpp CSV files into a SQLite3 database.")
+        description="Load crux-cpp CSV files into a SQLite3 database.")
     parser.add_argument("database", help="SQLite3 database file")
     parser.add_argument("--def",   dest="def_file",   metavar="FILE",
                         type=Path, help="CSV produced by the def tool")

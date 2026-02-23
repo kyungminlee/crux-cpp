@@ -1,6 +1,6 @@
-# extract-cpp
+# crux-cpp
 
-* extract-cpp is a set of CLI tools which extracts relevant information from a C++ code base and constructs a graph.
+* crux-cpp is a set of CLI tools which extracts relevant information from a C++ code base and constructs a graph.
 
 ## def
 `def` is a CLI program which extracts the definitions of all functions, methods, function templates, method templates, and their specializations.

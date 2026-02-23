@@ -102,7 +102,7 @@ def summary_update(
 
     Parameters
     ----------
-    conn:       Open SQLite connection to an extract-cpp database.
+    conn:       Open SQLite connection to a crux-cpp database.
     summarize:  Callable that takes a prompt string and returns a summary.
     force:      If True, re-summarize functions that already have a summary.
     """
