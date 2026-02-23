@@ -4,7 +4,6 @@
     {
       "name": "macos",
       "displayName": "macOS (Homebrew LLVM)",
-      "generator": "Ninja",
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
         "CMAKE_PREFIX_PATH": "/opt/homebrew/opt/llvm",
@@ -15,7 +14,6 @@
     {
       "name": "linux",
       "displayName": "Linux (LLVM 19 + g++)",
-      "generator": "Unix Makefiles",
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
         "CMAKE_PREFIX_PATH": "/usr/lib/llvm-19",
