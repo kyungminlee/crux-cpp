@@ -1,6 +1,7 @@
 #include "parser.hpp"
 
 #include "clang/AST/RecursiveASTVisitor.h"
+#include "llvm/Support/ManagedStatic.h"
 
 #include <set>
 
@@ -90,6 +91,9 @@ public:
 };
 
 int main(int argc, char *argv[]) {
+    // Ensures LLVM's global state is torn down before C++ static destructors
+    // fire, preventing a double-free in libLLVM's __cxa_finalize on Linux.
+    // llvm::llvm_shutdown_obj shutdown_guard;
     try {
         std::set<std::string> seen;
         return run_tool(argc, argv,

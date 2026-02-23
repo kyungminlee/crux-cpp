@@ -13,10 +13,10 @@
     },
     {
       "name": "linux",
-      "displayName": "Linux (LLVM 19 + g++)",
+      "displayName": "Linux (LLVM 20 + g++)",
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
-        "CMAKE_PREFIX_PATH": "/usr/lib/llvm-19",
+        "CMAKE_PREFIX_PATH": "/usr/lib/llvm-20",
         "CMAKE_CXX_COMPILER": "/usr/bin/g++",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }

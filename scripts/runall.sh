@@ -13,7 +13,7 @@
 set -euo pipefail
 
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
-BIN_DIR="$SCRIPT_DIR/../build"
+BIN_DIR="$SCRIPT_DIR/../build/cppsrc"
 PY_DIR="$SCRIPT_DIR/../pysrc"
 
 usage() {

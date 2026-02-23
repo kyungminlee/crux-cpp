@@ -14,8 +14,10 @@
 #include "clang/Tooling/Tooling.h"
 #include "llvm/ADT/SmallString.h"
 #include "llvm/Support/Casting.h"
+#include "llvm/Support/raw_os_ostream.h"
 
 #include <filesystem>
+#include <fstream>
 #include <functional>
 #include <iostream>
 #include <stdexcept>
@@ -165,12 +167,17 @@ int run_tool(
 
     out << header << '\n';
 
+    // Use loadFromFile rather than loadFromDirectory to skip the
+    // inferMissingCompileCommands wrapper, which has an LLVM 19 bug where
+    // BumpPtrAllocator reuses a reset (ASAN-poisoned) slab without
+    // re-unpoising it, causing a use-after-poison crash on the 2nd TU.
     std::string err;
-    auto db = clang::tooling::JSONCompilationDatabase::loadFromDirectory(
-        args.build_dir.string(), err);
+    const std::string ccjson =
+        (args.build_dir / "compile_commands.json").string();
+    auto db = clang::tooling::JSONCompilationDatabase::loadFromFile(
+        ccjson, err, clang::tooling::JSONCommandLineSyntax::AutoDetect);
     if (!db)
-        throw std::runtime_error("Cannot load compile_commands.json from "
-                                 + args.build_dir.string() + ": " + err);
+        throw std::runtime_error("Cannot load " + ccjson + ": " + err);
 
     clang::tooling::ClangTool tool(*db, args.sources);
     Factory factory(args.root_dir, out, makeAction);

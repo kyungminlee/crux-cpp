@@ -1,1 +1,0 @@
-/opt/homebrew/opt/llvm/bin/clang++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -Wl,-rpath,/Users/kyungminlee/.tea -stdlib=libc++ CMakeFiles/simple.dir/shapes.cpp.o CMakeFiles/simple.dir/math.cpp.o CMakeFiles/simple.dir/storage.cpp.o CMakeFiles/simple.dir/main.cpp.o -o simple

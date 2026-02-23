@@ -1,6 +1,7 @@
 #include "parser.hpp"
 
 #include "clang/AST/RecursiveASTVisitor.h"
+#include "llvm/Support/ManagedStatic.h"
 
 #include <set>
 
@@ -84,6 +85,7 @@ public:
 };
 
 int main(int argc, char *argv[]) {
+    llvm::llvm_shutdown_obj shutdown_guard;
     try {
         std::set<std::string> seen;
         return run_tool(argc, argv, "usr,parent_usr,visibility",
