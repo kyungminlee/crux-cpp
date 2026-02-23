@@ -77,5 +77,6 @@ done
 # Load all three CSVs into the output database.
 python3 "$PY_DIR/load.py" "$OUTPUT_DB" \
     --def   "$WORK_DIR/def.csv"   \
+    --root  "$ROOT_DIR"           \
     --call  "$WORK_DIR/call.csv"  \
     --class "$WORK_DIR/class.csv"
