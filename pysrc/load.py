@@ -3,11 +3,9 @@
 Load extract-cpp CSV files into a SQLite3 database.
 
 Usage:
-    load.py <database> <csv_file>...
+    load.py <database> [--def FILE] [--call FILE] [--class FILE]
 
-Each CSV file is identified by its header row; the table name matches the
-CLI tool that produced it (def, call, class).  Existing rows are replaced
-on primary-key conflict (INSERT OR REPLACE).
+Existing rows are replaced on primary-key conflict (INSERT OR REPLACE).
 
 Schema notes
 ------------
@@ -26,6 +24,7 @@ class
   - Class USRs are distinct from function USRs, so no reference to def.
 """
 
+import argparse
 import csv
 import sqlite3
 import sys
@@ -62,8 +61,7 @@ DDL = {
         )""",
 }
 
-# Header rows produced by each tool (used to auto-detect the table).
-EXPECTED_HEADERS = {
+COLUMNS = {
     "def":   ["usr", "fully_qualified_name", "kind", "class",
               "visibility", "filename", "start_line", "end_line"],
     "call":  ["caller_usr", "callee_usr"],
@@ -72,24 +70,9 @@ EXPECTED_HEADERS = {
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
-def detect_table(path: Path) -> str:
-    """Return the table name by matching the CSV header to a known schema."""
-    with open(path, newline="", encoding="utf-8") as f:
-        header = next(csv.reader(f), None)
-    if header is None:
-        raise ValueError(f"{path}: empty file")
-    for table, expected in EXPECTED_HEADERS.items():
-        if header == expected:
-            return table
-    raise ValueError(
-        f"{path}: unrecognized header {header!r}\n"
-        f"Expected one of: {list(EXPECTED_HEADERS.values())}"
-    )
-
-
 def load_csv(conn: sqlite3.Connection, path: Path, table: str) -> int:
     """INSERT OR REPLACE all rows from path into table. Returns row count."""
-    cols = EXPECTED_HEADERS[table]
+    cols = COLUMNS[table]
     placeholders = ", ".join("?" * len(cols))
     # Quote column names to handle reserved-word clashes (e.g. "class").
     col_list = ", ".join(f'"{c}"' for c in cols)
@@ -107,15 +90,26 @@ def load_csv(conn: sqlite3.Connection, path: Path, table: str) -> int:
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def main() -> int:
-    if len(sys.argv) < 3:
-        print(f"usage: {Path(sys.argv[0]).name} <database> <csv_file>...",
-              file=sys.stderr)
-        return 1
+    parser = argparse.ArgumentParser(
+        description="Load extract-cpp CSV files into a SQLite3 database.")
+    parser.add_argument("database", help="SQLite3 database file")
+    parser.add_argument("--def",   dest="def_file",   metavar="FILE",
+                        type=Path, help="CSV produced by the def tool")
+    parser.add_argument("--call",  dest="call_file",  metavar="FILE",
+                        type=Path, help="CSV produced by the call tool")
+    parser.add_argument("--class", dest="class_file", metavar="FILE",
+                        type=Path, help="CSV produced by the class tool")
+    args = parser.parse_args()
 
-    db_path = sys.argv[1]
-    csv_paths = [Path(p) for p in sys.argv[2:]]
+    files = {
+        "def":   args.def_file,
+        "call":  args.call_file,
+        "class": args.class_file,
+    }
+    if not any(files.values()):
+        parser.error("at least one of --def, --call, --class is required")
 
-    conn = sqlite3.connect(db_path)
+    conn = sqlite3.connect(args.database)
     conn.execute("PRAGMA journal_mode=WAL")
 
     for ddl in DDL.values():
@@ -123,11 +117,12 @@ def main() -> int:
     conn.commit()
 
     ok = True
-    for csv_path in csv_paths:
+    for table, path in files.items():
+        if path is None:
+            continue
         try:
-            table = detect_table(csv_path)
-            count = load_csv(conn, csv_path, table)
-            print(f"{csv_path}: {count} rows → '{table}'")
+            count = load_csv(conn, path, table)
+            print(f"{path}: {count} rows → '{table}'")
         except Exception as exc:
             print(f"error: {exc}", file=sys.stderr)
             ok = False
