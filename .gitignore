@@ -1,3 +1,6 @@
 /build*
 /simple.db
+/main.py
 tests/simple/build/
+__pycache__/
+*.pyc
