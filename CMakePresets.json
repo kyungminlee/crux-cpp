@@ -2,8 +2,8 @@
   "version": 3,
   "configurePresets": [
     {
-      "name": "default",
-      "displayName": "Default (Homebrew LLVM)",
+      "name": "macos",
+      "displayName": "macOS (Homebrew LLVM)",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
@@ -11,12 +11,27 @@
         "CMAKE_CXX_COMPILER": "/opt/homebrew/opt/llvm/bin/clang++",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }
+    },
+    {
+      "name": "linux",
+      "displayName": "Linux (LLVM 19 + g++)",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "/usr/lib/llvm-19",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
     }
   ],
   "buildPresets": [
     {
-      "name": "default",
-      "configurePreset": "default"
+      "name": "macos",
+      "configurePreset": "macos"
+    },
+    {
+      "name": "linux",
+      "configurePreset": "linux"
     }
   ]
 }
