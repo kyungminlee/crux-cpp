@@ -94,7 +94,8 @@ def main() -> int:
     sccs = tarjan_sccs(graph)
 
     # Replace USRs with human-readable names.
-    result = [[names[u] for u in scc] for scc in sccs]
+    # result = [[names[u] for u in scc] for scc in sccs]
+    result = sccs
 
     print(json.dumps(result, indent=2))
     return 0
