@@ -13,25 +13,32 @@ c:@F@min_of<#I>#I#I#,min_of,Function,,,math.hpp,32,32
 c:@F@square#d#,square,Function,,,math.cpp,10,10
 c:@F@square#f#,square,Function,,,math.cpp,11,11
 c:@F@square#I#,square,Function,,,math.cpp,9,9
-c:@F@weighted_sum<#f#I>#f#f#I#I#,weighted_sum,Function,,,math.hpp,39,42
-c:@F@weighted_sum<#I#d>#I#I#d#d#,weighted_sum,Function,,,math.hpp,39,42
 c:@FT@>1#Tclamp#t0.0#S0_#S0_#S0_#,clamp,FunctionTemplate,,,math.hpp,17,19
 c:@FT@>1#Tlerp#t0.0#S0_#d#S0_#,lerp,FunctionTemplate,,,math.hpp,27,29
 c:@FT@>1#Tmax_of#t0.0#S0_#S0_#,max_of,FunctionTemplate,,,math.hpp,35,35
 c:@FT@>1#Tmin_of#t0.0#S0_#S0_#,min_of,FunctionTemplate,,,math.hpp,32,32
 c:@FT@>2#T#Tweighted_sum#t0.0#S0_#t0.1#S1_#d#,weighted_sum,FunctionTemplate,,,math.hpp,39,42
+c:@F@weighted_sum<#f#I>#f#f#I#I#,weighted_sum,Function,,,math.hpp,39,42
+c:@F@weighted_sum<#I#d>#I#I#d#d#,weighted_sum,Function,,,math.hpp,39,42
+c:main.cpp@F@demo_math#,demo_math,Function,,,main.cpp,37,59
+c:main.cpp@F@demo_shapes#,demo_shapes,Function,,,main.cpp,14,35
+c:main.cpp@F@demo_storage#,demo_storage,Function,,,main.cpp,61,102
+c:main.cpp@F@double_to_double#&1d#,double_to_double,Function,,,main.cpp,9,9
+c:main.cpp@F@int_to_double#&1I#,int_to_double,Function,,,main.cpp,7,7
+c:main.cpp@F@sum_doubles#&1d#S0_#,sum_doubles,Function,,,main.cpp,10,10
+c:main.cpp@F@sum_ints#&1I#S0_#,sum_ints,Function,,,main.cpp,8,8
 c:@S@Circle@F@area#1,Circle::area,CXXMethod,Circle,public,shapes.cpp,18,18
 c:@S@Circle@F@Circle#d#,Circle::Circle,Constructor,Circle,public,shapes.cpp,15,17
 c:@S@Circle@F@perimeter#1,Circle::perimeter,CXXMethod,Circle,public,shapes.cpp,19,19
 c:@S@Circle@F@radius#1,Circle::radius,CXXMethod,Circle,public,shapes.cpp,22,22
 c:@S@Circle@F@scale#d#,Circle::scale,CXXMethod,Circle,public,shapes.cpp,20,20
 c:@S@Circle@F@scale#d#d#,Circle::scale,CXXMethod,Circle,public,shapes.cpp,21,21
-c:@S@Pair>#*I@F@both_null#1,Pair<int *>::both_null,CXXMethod,Pair,public,storage.hpp,82,82
-c:@S@Pair>#*I@F@either_null#1,Pair<int *>::either_null,CXXMethod,Pair,public,storage.hpp,81,81
-c:@S@Pair>#*I@F@first#1,Pair<int *>::first,CXXMethod,Pair,public,storage.hpp,78,78
-c:@S@Pair>#*I@F@Pair#S0_#S0_#,Pair<int *>::Pair,Constructor,Pair,public,storage.hpp,76,76
-c:@S@Pair>#*I@F@second#1,Pair<int *>::second,CXXMethod,Pair,public,storage.hpp,79,79
-c:@S@Pair>#*I@F@swap#,Pair<int *>::swap,CXXMethod,Pair,public,storage.hpp,84,84
+c:@SP>1#T@Pair>#*t0.0@F@both_null#1,Pair<type-parameter-0-0 *>::both_null,CXXMethod,Pair,public,storage.hpp,82,82
+c:@SP>1#T@Pair>#*t0.0@F@either_null#1,Pair<type-parameter-0-0 *>::either_null,CXXMethod,Pair,public,storage.hpp,81,81
+c:@SP>1#T@Pair>#*t0.0@F@first#1,Pair<type-parameter-0-0 *>::first,CXXMethod,Pair,public,storage.hpp,78,78
+c:@SP>1#T@Pair>#*t0.0@F@Pair#S0_#S0_#,Pair<type-parameter-0-0 *>::Pair<type-parameter-0-0 *>,Constructor,Pair,public,storage.hpp,76,76
+c:@SP>1#T@Pair>#*t0.0@F@second#1,Pair<type-parameter-0-0 *>::second,CXXMethod,Pair,public,storage.hpp,79,79
+c:@SP>1#T@Pair>#*t0.0@F@swap#,Pair<type-parameter-0-0 *>::swap,CXXMethod,Pair,public,storage.hpp,84,84
 c:@S@Pair>#b@F@all#1,Pair<bool>::all,CXXMethod,Pair,public,storage.cpp,15,15
 c:@S@Pair>#b@F@any#1,Pair<bool>::any,CXXMethod,Pair,public,storage.cpp,14,14
 c:@S@Pair>#b@F@as<#d>#1,Pair<bool>::as,CXXMethod,Pair,public,storage.cpp,26,29
@@ -45,52 +52,45 @@ c:@S@Pair>#b@F@second#1,Pair<bool>::second,CXXMethod,Pair,public,storage.cpp,8,8
 c:@S@Pair>#d@F@map<#d>#*Fd(#&1d)#1,Pair<double>::map,CXXMethod,Pair,public,storage.hpp,26,28
 c:@S@Pair>#d@F@Pair#d#d#,Pair<double>::Pair,Constructor,Pair,public,storage.hpp,10,10
 c:@S@Pair>#d@F@reduce<#d>#*Fd(#&1d#S2_)#1,Pair<double>::reduce,CXXMethod,Pair,public,storage.hpp,32,34
+c:@S@Pair>#*I@F@both_null#1,Pair<int *>::both_null,CXXMethod,Pair,public,storage.hpp,82,82
+c:@S@Pair>#*I@F@either_null#1,Pair<int *>::either_null,CXXMethod,Pair,public,storage.hpp,81,81
 c:@S@Pair>#I@F@equal#&1I#1,Pair<int>::equal,CXXMethod,Pair,public,storage.hpp,22,22
 c:@S@Pair>#I@F@equal#1,Pair<int>::equal,CXXMethod,Pair,public,storage.hpp,21,21
-c:@S@Pair>#I@F@first#,Pair<int>::first,CXXMethod,Pair,public,storage.hpp,13,13
 c:@S@Pair>#I@F@first#1,Pair<int>::first,CXXMethod,Pair,public,storage.hpp,14,14
+c:@S@Pair>#*I@F@first#1,Pair<int *>::first,CXXMethod,Pair,public,storage.hpp,78,78
+c:@S@Pair>#I@F@first#,Pair<int>::first,CXXMethod,Pair,public,storage.hpp,13,13
 c:@S@Pair>#I@F@map<#d>#*Fd(#&1I)#1,Pair<int>::map,CXXMethod,Pair,public,storage.hpp,26,28
 c:@S@Pair>#I@F@Pair#I#I#,Pair<int>::Pair,Constructor,Pair,public,storage.hpp,10,10
+c:@S@Pair>#*I@F@Pair#S0_#S0_#,Pair<int *>::Pair,Constructor,Pair,public,storage.hpp,76,76
 c:@S@Pair>#I@F@reduce<#I>#*FI(#&1I#S2_)#1,Pair<int>::reduce,CXXMethod,Pair,public,storage.hpp,32,34
-c:@S@Pair>#I@F@second#,Pair<int>::second,CXXMethod,Pair,public,storage.hpp,15,15
 c:@S@Pair>#I@F@second#1,Pair<int>::second,CXXMethod,Pair,public,storage.hpp,16,16
+c:@S@Pair>#*I@F@second#1,Pair<int *>::second,CXXMethod,Pair,public,storage.hpp,79,79
+c:@S@Pair>#I@F@second#,Pair<int>::second,CXXMethod,Pair,public,storage.hpp,15,15
 c:@S@Pair>#I@F@swap#,Pair<int>::swap,CXXMethod,Pair,public,storage.hpp,18,18
+c:@S@Pair>#*I@F@swap#,Pair<int *>::swap,CXXMethod,Pair,public,storage.hpp,84,84
 c:@S@Rectangle@F@area#1,Rectangle::area,CXXMethod,Rectangle,public,shapes.cpp,27,27
 c:@S@Rectangle@F@height#1,Rectangle::height,CXXMethod,Rectangle,public,shapes.cpp,32,32
 c:@S@Rectangle@F@perimeter#1,Rectangle::perimeter,CXXMethod,Rectangle,public,shapes.cpp,28,28
 c:@S@Rectangle@F@Rectangle#d#d#,Rectangle::Rectangle,Constructor,Rectangle,public,shapes.cpp,26,26
-c:@S@Rectangle@F@scale#d#,Rectangle::scale,CXXMethod,Rectangle,public,shapes.cpp,29,29
 c:@S@Rectangle@F@scale#d#d#,Rectangle::scale,CXXMethod,Rectangle,public,shapes.cpp,30,30
+c:@S@Rectangle@F@scale#d#,Rectangle::scale,CXXMethod,Rectangle,public,shapes.cpp,29,29
 c:@S@Rectangle@F@width#1,Rectangle::width,CXXMethod,Rectangle,public,shapes.cpp,31,31
-c:@S@Shape@F@~Shape#,Shape::~Shape,Destructor,Shape,public,shapes.hpp,8,8
 c:@S@Shape@F@ratio_to#&1$@S@Shape#1,Shape::ratio_to,CXXMethod,Shape,public,shapes.cpp,9,11
 c:@S@Shape@F@Shape#,Shape::Shape,Constructor,Shape,public,shapes.hpp,7,7
-c:@S@Triangle@F@area#1,Triangle::area,CXXMethod,Triangle,public,shapes.cpp,40,43
-c:@S@Triangle@F@perimeter#1,Triangle::perimeter,CXXMethod,Triangle,public,shapes.cpp,44,44
-c:@S@Triangle@F@scale#d#,Triangle::scale,CXXMethod,Triangle,public,shapes.cpp,45,45
-c:@S@Triangle@F@scale#d#d#,Triangle::scale,CXXMethod,Triangle,public,shapes.cpp,46,46
-c:@S@Triangle@F@Triangle#d#d#d#,Triangle::Triangle,Constructor,Triangle,public,shapes.cpp,36,39
-c:@SP>1#T@Pair>#*t0.0@F@both_null#1,Pair<type-parameter-0-0 *>::both_null,CXXMethod,Pair,public,storage.hpp,82,82
-c:@SP>1#T@Pair>#*t0.0@F@either_null#1,Pair<type-parameter-0-0 *>::either_null,CXXMethod,Pair,public,storage.hpp,81,81
-c:@SP>1#T@Pair>#*t0.0@F@first#1,Pair<type-parameter-0-0 *>::first,CXXMethod,Pair,public,storage.hpp,78,78
-c:@SP>1#T@Pair>#*t0.0@F@Pair#S0_#S0_#,Pair<type-parameter-0-0 *>::Pair<T *>,Constructor,Pair,public,storage.hpp,76,76
-c:@SP>1#T@Pair>#*t0.0@F@second#1,Pair<type-parameter-0-0 *>::second,CXXMethod,Pair,public,storage.hpp,79,79
-c:@SP>1#T@Pair>#*t0.0@F@swap#,Pair<type-parameter-0-0 *>::swap,CXXMethod,Pair,public,storage.hpp,84,84
-c:@ST>1#T@Pair@F@equal#&1t0.0#1,Pair::equal,CXXMethod,Pair,public,storage.hpp,22,22
+c:@S@Shape@F@~Shape#,Shape::~Shape,Destructor,Shape,public,shapes.hpp,8,8
 c:@ST>1#T@Pair@F@equal#1,Pair::equal,CXXMethod,Pair,public,storage.hpp,21,21
-c:@ST>1#T@Pair@F@first#,Pair::first,CXXMethod,Pair,public,storage.hpp,13,13
+c:@ST>1#T@Pair@F@equal#&1t0.0#1,Pair::equal,CXXMethod,Pair,public,storage.hpp,22,22
 c:@ST>1#T@Pair@F@first#1,Pair::first,CXXMethod,Pair,public,storage.hpp,14,14
+c:@ST>1#T@Pair@F@first#,Pair::first,CXXMethod,Pair,public,storage.hpp,13,13
 c:@ST>1#T@Pair@F@Pair#t0.0#S0_#,Pair::Pair<T>,Constructor,Pair,public,storage.hpp,10,10
-c:@ST>1#T@Pair@F@second#,Pair::second,CXXMethod,Pair,public,storage.hpp,15,15
 c:@ST>1#T@Pair@F@second#1,Pair::second,CXXMethod,Pair,public,storage.hpp,16,16
+c:@ST>1#T@Pair@F@second#,Pair::second,CXXMethod,Pair,public,storage.hpp,15,15
 c:@ST>1#T@Pair@F@swap#,Pair::swap,CXXMethod,Pair,public,storage.hpp,18,18
 c:@ST>1#T@Pair@FT@>1#Tmap#*Ft1.0(#&1t0.0)#>@ST>1#T@Pair1S2_#1,Pair::map,CXXMethodTemplate,Pair,public,storage.hpp,26,28
 c:@ST>1#T@Pair@FT@>1#Treduce#*Ft1.0(#&1t0.0#S3_)#S2_#1,Pair::reduce,CXXMethodTemplate,Pair,public,storage.hpp,32,34
-c:main.cpp@F@demo_math#,demo_math,Function,,,main.cpp,37,59
-c:main.cpp@F@demo_shapes#,demo_shapes,Function,,,main.cpp,14,35
-c:main.cpp@F@demo_storage#,demo_storage,Function,,,main.cpp,61,102
-c:main.cpp@F@double_to_double#&1d#,double_to_double,Function,,,main.cpp,9,9
-c:main.cpp@F@int_to_double#&1I#,int_to_double,Function,,,main.cpp,7,7
-c:main.cpp@F@sum_doubles#&1d#S0_#,sum_doubles,Function,,,main.cpp,10,10
-c:main.cpp@F@sum_ints#&1I#S0_#,sum_ints,Function,,,main.cpp,8,8
+c:@S@Triangle@F@area#1,Triangle::area,CXXMethod,Triangle,public,shapes.cpp,40,43
+c:@S@Triangle@F@perimeter#1,Triangle::perimeter,CXXMethod,Triangle,public,shapes.cpp,44,44
+c:@S@Triangle@F@scale#d#d#,Triangle::scale,CXXMethod,Triangle,public,shapes.cpp,46,46
+c:@S@Triangle@F@scale#d#,Triangle::scale,CXXMethod,Triangle,public,shapes.cpp,45,45
+c:@S@Triangle@F@Triangle#d#d#d#,Triangle::Triangle,Constructor,Triangle,public,shapes.cpp,36,39
 usr,fully_qualified_name,kind,class,visibility,filename,start_line,end_line
