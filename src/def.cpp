@@ -2,7 +2,6 @@
 
 #include "clang/AST/RecursiveASTVisitor.h"
 
-#include <iostream>
 #include <set>
 
 // Extracts definitions of functions, methods, function templates, method
@@ -11,6 +10,7 @@ class DefVisitor : public clang::RecursiveASTVisitor<DefVisitor> {
     const clang::SourceManager &sm_;
     const fs::path &root_;
     std::set<std::string> &seen_;
+    llvm::raw_ostream &out_;
 
     // Emit one CSV row.
     // decl_for_usr: FunctionTemplateDecl for primary templates, FunctionDecl otherwise.
@@ -29,13 +29,13 @@ class DefVisitor : public clang::RecursiveASTVisitor<DefVisitor> {
             + std::to_string(expansion_line(sm_, fd->getBeginLoc()))     + ','
             + std::to_string(expansion_line(sm_, fd->getEndLoc()));
         if (seen_.insert(row).second)
-            std::cout << row << '\n';
+            out_ << row << '\n';
     }
 
 public:
     DefVisitor(const clang::SourceManager &sm, const fs::path &root,
-               std::set<std::string> &seen)
-        : sm_(sm), root_(root), seen_(seen) {}
+               std::set<std::string> &seen, llvm::raw_ostream &out)
+        : sm_(sm), root_(root), seen_(seen), out_(out) {}
 
     // Include implicit template instantiations.
     bool shouldVisitTemplateInstantiations() const { return true; }
@@ -63,12 +63,14 @@ public:
 class DefConsumer : public clang::ASTConsumer {
     const fs::path &root_;
     std::set<std::string> &seen_;
+    llvm::raw_ostream &out_;
 public:
-    DefConsumer(const fs::path &root, std::set<std::string> &seen)
-        : root_(root), seen_(seen) {}
+    DefConsumer(const fs::path &root, std::set<std::string> &seen,
+                llvm::raw_ostream &out)
+        : root_(root), seen_(seen), out_(out) {}
 
     void HandleTranslationUnit(clang::ASTContext &ctx) override {
-        DefVisitor v(ctx.getSourceManager(), root_, seen_);
+        DefVisitor v(ctx.getSourceManager(), root_, seen_, out_);
         v.TraverseDecl(ctx.getTranslationUnitDecl());
     }
 };
@@ -76,25 +78,27 @@ public:
 class DefAction : public clang::ASTFrontendAction {
     fs::path root_;
     std::set<std::string> &seen_;
+    llvm::raw_ostream &out_;
 public:
-    DefAction(fs::path root, std::set<std::string> &seen)
-        : root_(std::move(root)), seen_(seen) {}
+    DefAction(fs::path root, std::set<std::string> &seen, llvm::raw_ostream &out)
+        : root_(std::move(root)), seen_(seen), out_(out) {}
 
     std::unique_ptr<clang::ASTConsumer>
     CreateASTConsumer(clang::CompilerInstance &, llvm::StringRef) override {
-        return std::make_unique<DefConsumer>(root_, seen_);
+        return std::make_unique<DefConsumer>(root_, seen_, out_);
     }
 };
 
 int main(int argc, char *argv[]) {
     try {
         std::set<std::string> seen;
-        std::cout << "usr,fully_qualified_name,kind,class,visibility,filename,start_line,end_line\n";
-        return run_tool(argc, argv, [&seen](const fs::path &root) {
-            return std::make_unique<DefAction>(root, seen);
-        });
+        return run_tool(argc, argv,
+            "usr,fully_qualified_name,kind,class,visibility,filename,start_line,end_line",
+            [&seen](const fs::path &root, llvm::raw_ostream &out) {
+                return std::make_unique<DefAction>(root, seen, out);
+            });
     } catch (const std::exception &e) {
-        std::cerr << "error: " << e.what() << '\n';
+        llvm::errs() << "error: " << e.what() << '\n';
         return 1;
     }
 }

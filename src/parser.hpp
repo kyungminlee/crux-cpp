@@ -14,10 +14,11 @@
 #include "clang/Tooling/Tooling.h"
 #include "llvm/ADT/SmallString.h"
 #include "llvm/Support/Casting.h"
+#include "llvm/Support/FileSystem.h"
+#include "llvm/Support/raw_ostream.h"
 
 #include <filesystem>
 #include <functional>
-#include <iostream>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -83,14 +84,18 @@ struct Args {
     std::vector<std::string> sources;
     fs::path build_dir;
     fs::path root_dir;
+    std::string output_file;  // empty → stdout
 };
 
 Args parse_args(int argc, char *argv[]);
 
 // ── Tool runner ───────────────────────────────────────────────────────────────
 
-// Parses CLI args, loads compile_commands.json, and runs a ClangTool.
-// makeAction is called once per TU with the root_dir.
+// Parses CLI args, opens output (stdout or -o file), prints the header row,
+// loads compile_commands.json, and runs a ClangTool.
+// makeAction receives the root_dir and the output stream, called once per TU.
 int run_tool(
     int argc, char *argv[],
-    std::function<std::unique_ptr<clang::FrontendAction>(const fs::path &)> makeAction);
+    const std::string &header,
+    std::function<std::unique_ptr<clang::FrontendAction>(
+        const fs::path &, llvm::raw_ostream &)> makeAction);

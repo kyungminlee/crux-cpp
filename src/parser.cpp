@@ -111,6 +111,9 @@ Args parse_args(int argc, char *argv[]) {
         } else if (s == "--root") {
             if (++i >= argc) throw std::runtime_error("--root requires a value");
             a.root_dir = argv[i];
+        } else if (s == "-o") {
+            if (++i >= argc) throw std::runtime_error("-o requires a filename");
+            a.output_file = argv[i];
         } else {
             a.sources.push_back(s);
         }
@@ -125,20 +128,44 @@ Args parse_args(int argc, char *argv[]) {
 
 // ── Tool runner ───────────────────────────────────────────────────────────────
 
-// Parses CLI args, loads compile_commands.json, and runs a ClangTool.
-// makeAction is called once per TU with the root_dir.
+// Parses CLI args, opens output (stdout or -o file), prints the header row,
+// loads compile_commands.json, and runs a ClangTool.
+// makeAction receives the root_dir and output stream, called once per TU.
 int run_tool(
     int argc, char *argv[],
-    std::function<std::unique_ptr<clang::FrontendAction>(const fs::path &)> makeAction)
+    const std::string &header,
+    std::function<std::unique_ptr<clang::FrontendAction>(
+        const fs::path &, llvm::raw_ostream &)> makeAction)
 {
     struct Factory : clang::tooling::FrontendActionFactory {
         fs::path root;
-        std::function<std::unique_ptr<clang::FrontendAction>(const fs::path &)> fn;
-        Factory(fs::path r, decltype(fn) f) : root(std::move(r)), fn(std::move(f)) {}
-        std::unique_ptr<clang::FrontendAction> create() override { return fn(root); }
+        llvm::raw_ostream &out;
+        std::function<std::unique_ptr<clang::FrontendAction>(
+            const fs::path &, llvm::raw_ostream &)> fn;
+        Factory(fs::path r, llvm::raw_ostream &o, decltype(fn) f)
+            : root(std::move(r)), out(o), fn(std::move(f)) {}
+        std::unique_ptr<clang::FrontendAction> create() override {
+            return fn(root, out);
+        }
     };
 
     const Args args = parse_args(argc, argv);
+
+    // Open output: file if -o was given, stdout otherwise.
+    std::unique_ptr<llvm::raw_fd_ostream> file_stream;
+    llvm::raw_ostream *out_ptr = &llvm::outs();
+    if (!args.output_file.empty()) {
+        std::error_code ec;
+        file_stream = std::make_unique<llvm::raw_fd_ostream>(
+            args.output_file, ec, llvm::sys::fs::OF_Text);
+        if (ec)
+            throw std::runtime_error("cannot open output file '"
+                                     + args.output_file + "': " + ec.message());
+        out_ptr = file_stream.get();
+    }
+    llvm::raw_ostream &out = *out_ptr;
+
+    out << header << '\n';
 
     std::string err;
     auto db = clang::tooling::JSONCompilationDatabase::loadFromDirectory(
@@ -148,6 +175,6 @@ int run_tool(
                                  + args.build_dir.string() + ": " + err);
 
     clang::tooling::ClangTool tool(*db, args.sources);
-    Factory factory(args.root_dir, makeAction);
+    Factory factory(args.root_dir, out, makeAction);
     return tool.run(&factory);
 }

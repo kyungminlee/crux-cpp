@@ -2,7 +2,6 @@
 
 #include "clang/AST/RecursiveASTVisitor.h"
 
-#include <iostream>
 #include <set>
 
 // Extracts direct base-class relationships for CXX record declarations whose
@@ -11,11 +10,12 @@ class ClassVisitor : public clang::RecursiveASTVisitor<ClassVisitor> {
     const clang::SourceManager &sm_;
     const fs::path &root_;
     std::set<std::string> &seen_;
+    llvm::raw_ostream &out_;
 
 public:
     ClassVisitor(const clang::SourceManager &sm, const fs::path &root,
-                 std::set<std::string> &seen)
-        : sm_(sm), root_(root), seen_(seen) {}
+                 std::set<std::string> &seen, llvm::raw_ostream &out)
+        : sm_(sm), root_(root), seen_(seen), out_(out) {}
 
     // Include implicit template instantiations so that e.g. Derived<int> rows
     // are emitted alongside the primary template row.
@@ -48,7 +48,7 @@ public:
                                   + csv_field(parent_usr) + ','
                                   + csv_field(access_str(base.getAccessSpecifier()));
             if (seen_.insert(row).second)
-                std::cout << row << '\n';
+                out_ << row << '\n';
         }
         return true;
     }
@@ -57,12 +57,14 @@ public:
 class ClassConsumer : public clang::ASTConsumer {
     const fs::path &root_;
     std::set<std::string> &seen_;
+    llvm::raw_ostream &out_;
 public:
-    ClassConsumer(const fs::path &root, std::set<std::string> &seen)
-        : root_(root), seen_(seen) {}
+    ClassConsumer(const fs::path &root, std::set<std::string> &seen,
+                  llvm::raw_ostream &out)
+        : root_(root), seen_(seen), out_(out) {}
 
     void HandleTranslationUnit(clang::ASTContext &ctx) override {
-        ClassVisitor v(ctx.getSourceManager(), root_, seen_);
+        ClassVisitor v(ctx.getSourceManager(), root_, seen_, out_);
         v.TraverseDecl(ctx.getTranslationUnitDecl());
     }
 };
@@ -70,25 +72,26 @@ public:
 class ClassAction : public clang::ASTFrontendAction {
     fs::path root_;
     std::set<std::string> &seen_;
+    llvm::raw_ostream &out_;
 public:
-    ClassAction(fs::path root, std::set<std::string> &seen)
-        : root_(std::move(root)), seen_(seen) {}
+    ClassAction(fs::path root, std::set<std::string> &seen, llvm::raw_ostream &out)
+        : root_(std::move(root)), seen_(seen), out_(out) {}
 
     std::unique_ptr<clang::ASTConsumer>
     CreateASTConsumer(clang::CompilerInstance &, llvm::StringRef) override {
-        return std::make_unique<ClassConsumer>(root_, seen_);
+        return std::make_unique<ClassConsumer>(root_, seen_, out_);
     }
 };
 
 int main(int argc, char *argv[]) {
     try {
         std::set<std::string> seen;
-        std::cout << "usr,parent_usr,visibility\n";
-        return run_tool(argc, argv, [&seen](const fs::path &root) {
-            return std::make_unique<ClassAction>(root, seen);
-        });
+        return run_tool(argc, argv, "usr,parent_usr,visibility",
+            [&seen](const fs::path &root, llvm::raw_ostream &out) {
+                return std::make_unique<ClassAction>(root, seen, out);
+            });
     } catch (const std::exception &e) {
-        std::cerr << "error: " << e.what() << '\n';
+        llvm::errs() << "error: " << e.what() << '\n';
         return 1;
     }
 }
