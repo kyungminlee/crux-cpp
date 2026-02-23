@@ -9,7 +9,7 @@ crux-cpp extracts structural information from a C++ codebase — function defini
 - LLVM/Clang ≥ 19 with development libraries
 
 **Python tools** (database + summarization):
-- Python ≥ 3.13
+- Python ≥ 3.12
 - [uv](https://docs.astral.sh/uv/) (or pip)
 
 ---
