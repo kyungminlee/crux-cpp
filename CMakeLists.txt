@@ -66,3 +66,38 @@ foreach(target def call class)
     )
     target_link_libraries(${target} PRIVATE parser ${CLANG_LINK_LIBS} ${LLVM_LINK_LIBS})
 endforeach()
+
+# ── Tests ─────────────────────────────────────────────────────────────────────
+
+enable_testing()
+
+set(SIMPLE_SRC "${CMAKE_SOURCE_DIR}/examples/simple")
+set(SIMPLE_BUILD "${CMAKE_BINARY_DIR}/examples/simple")
+set(SIMPLE_SRCS
+    "${SIMPLE_SRC}/shapes.cpp"
+    "${SIMPLE_SRC}/math.cpp"
+    "${SIMPLE_SRC}/storage.cpp"
+    "${SIMPLE_SRC}/main.cpp"
+)
+
+# Configure examples/simple at cmake configure time to produce compile_commands.json.
+execute_process(
+    COMMAND ${CMAKE_COMMAND}
+        -B "${SIMPLE_BUILD}"
+        -S "${SIMPLE_SRC}"
+        -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
+        -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    OUTPUT_QUIET
+)
+
+foreach(tool def call class)
+    add_test(
+        NAME ${tool}_simple
+        COMMAND bash "${CMAKE_SOURCE_DIR}/tests/run_test.sh"
+            $<TARGET_FILE:${tool}>
+            "${CMAKE_SOURCE_DIR}/tests/expected_${tool}.csv"
+            "${SIMPLE_BUILD}"
+            "${SIMPLE_SRC}"
+            ${SIMPLE_SRCS}
+    )
+endforeach()
