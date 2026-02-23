@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/Users/kyungminlee/Code/extract-cpp/examples/simple/build",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++   -std=gnu++17 -arch arm64 -stdlib=libc++ -resource-dir /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o CMakeFiles/simple.dir/shapes.cpp.o -c /Users/kyungminlee/Code/extract-cpp/examples/simple/shapes.cpp",
+  "file": "/Users/kyungminlee/Code/extract-cpp/examples/simple/shapes.cpp",
+  "output": "CMakeFiles/simple.dir/shapes.cpp.o"
+},
+{
+  "directory": "/Users/kyungminlee/Code/extract-cpp/examples/simple/build",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++   -std=gnu++17 -arch arm64 -stdlib=libc++ -resource-dir /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o CMakeFiles/simple.dir/math.cpp.o -c /Users/kyungminlee/Code/extract-cpp/examples/simple/math.cpp",
+  "file": "/Users/kyungminlee/Code/extract-cpp/examples/simple/math.cpp",
+  "output": "CMakeFiles/simple.dir/math.cpp.o"
+},
+{
+  "directory": "/Users/kyungminlee/Code/extract-cpp/examples/simple/build",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++   -std=gnu++17 -arch arm64 -stdlib=libc++ -resource-dir /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o CMakeFiles/simple.dir/storage.cpp.o -c /Users/kyungminlee/Code/extract-cpp/examples/simple/storage.cpp",
+  "file": "/Users/kyungminlee/Code/extract-cpp/examples/simple/storage.cpp",
+  "output": "CMakeFiles/simple.dir/storage.cpp.o"
+},
+{
+  "directory": "/Users/kyungminlee/Code/extract-cpp/examples/simple/build",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++   -std=gnu++17 -arch arm64 -stdlib=libc++ -resource-dir /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o CMakeFiles/simple.dir/main.cpp.o -c /Users/kyungminlee/Code/extract-cpp/examples/simple/main.cpp",
+  "file": "/Users/kyungminlee/Code/extract-cpp/examples/simple/main.cpp",
+  "output": "CMakeFiles/simple.dir/main.cpp.o"
+}
+]

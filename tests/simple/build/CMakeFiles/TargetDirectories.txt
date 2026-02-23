@@ -1,0 +1,3 @@
+/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/simple.dir
+/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/edit_cache.dir
+/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/rebuild_cache.dir

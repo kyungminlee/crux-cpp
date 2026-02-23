@@ -71,8 +71,8 @@ endforeach()
 
 enable_testing()
 
-set(SIMPLE_SRC "${CMAKE_SOURCE_DIR}/examples/simple")
-set(SIMPLE_BUILD "${CMAKE_BINARY_DIR}/examples/simple")
+set(SIMPLE_SRC "${CMAKE_SOURCE_DIR}/tests/simple")
+set(SIMPLE_BUILD "${CMAKE_BINARY_DIR}/tests/simple")
 set(SIMPLE_SRCS
     "${SIMPLE_SRC}/shapes.cpp"
     "${SIMPLE_SRC}/math.cpp"
@@ -80,7 +80,7 @@ set(SIMPLE_SRCS
     "${SIMPLE_SRC}/main.cpp"
 )
 
-# Configure examples/simple at cmake configure time to produce compile_commands.json.
+# Configure tests/simple at cmake configure time to produce compile_commands.json.
 execute_process(
     COMMAND ${CMAKE_COMMAND}
         -B "${SIMPLE_BUILD}"
@@ -95,7 +95,7 @@ foreach(tool def call class)
         NAME ${tool}_simple
         COMMAND bash "${CMAKE_SOURCE_DIR}/tests/run_test.sh"
             $<TARGET_FILE:${tool}>
-            "${CMAKE_SOURCE_DIR}/tests/expected_${tool}.csv"
+            "${SIMPLE_SRC}/expected_${tool}.csv"
             "${SIMPLE_BUILD}"
             "${SIMPLE_SRC}"
             ${SIMPLE_SRCS}
