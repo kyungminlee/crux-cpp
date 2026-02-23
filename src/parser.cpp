@@ -1,5 +1,3 @@
-#pragma once
-
 #include "parser.hpp"
 
 #include "clang/AST/ASTConsumer.h"
