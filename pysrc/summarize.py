@@ -1,46 +1,21 @@
-#!/usr/bin/env python3
 """
-Summarize C++ function definitions using an LLM, in topological order.
+Library for summarizing C++ function definitions using an LLM.
 
-Usage:
-    summarize.py <database> [--force]
+Core API
+--------
+summary_update(conn, summarize, force=False)
+    Populate the 'summary' table in an open SQLite connection by calling
+    `summarize(prompt) -> str` for each in-root function in topological
+    (callee-first) order.
 
-Functions are processed callee-first so that when a function is summarized,
-summaries of its callees are already available and included in the prompt.
-
-Mutually recursive functions (SCCs of size > 1) are processed without
-summaries from within the same cycle, since none exist yet.
-
-Already-summarized functions are skipped unless --force is given.
-
-─── Plug in your LLM ────────────────────────────────────────────────────────
-Replace the `summarize` function below with a real LLM call before running.
-─────────────────────────────────────────────────────────────────────────────
+Helpers exported for use in CLI wrappers
+----------------------------------------
+tarjan_sccs(graph)   -- iterative Tarjan SCC, callee-first order
+build_prompt(...)    -- build the LLM prompt for one function
 """
 
-import argparse
 import sqlite3
-import sys
-
-
-# ── LLM stub ─────────────────────────────────────────────────────────────────
-
-def summarize(prompt: str) -> str:
-    """Send prompt to an LLM and return its response.
-
-    Replace this stub with a real implementation, e.g.:
-
-        import anthropic
-        client = anthropic.Anthropic()
-        def summarize(prompt):
-            msg = client.messages.create(
-                model="claude-opus-4-6",
-                max_tokens=256,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            return msg.content[0].text
-    """
-    raise NotImplementedError("Replace summarize() with a real LLM call")
+from collections.abc import Callable
 
 
 # ── Tarjan SCC (iterative) ────────────────────────────────────────────────────
@@ -116,18 +91,21 @@ def build_prompt(fqn: str, text: str,
     return "\n".join(lines)
 
 
-# ── Entry point ───────────────────────────────────────────────────────────────
+# ── Library entry point ───────────────────────────────────────────────────────
 
-def main() -> int:
-    parser = argparse.ArgumentParser(
-        description="Summarize C++ functions in topological order using an LLM.")
-    parser.add_argument("database", help="SQLite3 database file")
-    parser.add_argument("--force", action="store_true",
-                        help="Re-summarize even if a summary already exists")
-    args = parser.parse_args()
+def summary_update(
+    conn: sqlite3.Connection,
+    summarize: Callable[[str], str],
+    force: bool = False,
+) -> None:
+    """Populate the 'summary' table using the provided summarize function.
 
-    conn = sqlite3.connect(args.database)
-    conn.execute("PRAGMA journal_mode=WAL")
+    Parameters
+    ----------
+    conn:       Open SQLite connection to an extract-cpp database.
+    summarize:  Callable that takes a prompt string and returns a summary.
+    force:      If True, re-summarize functions that already have a summary.
+    """
     conn.execute("""\
         CREATE TABLE IF NOT EXISTS summary (
             usr     TEXT  PRIMARY KEY  REFERENCES def(usr),
@@ -149,29 +127,25 @@ def main() -> int:
         if caller in names and callee in names:
             graph[caller].append(callee)
 
-    sccs = tarjan_sccs(graph)
+    sccs  = tarjan_sccs(graph)
     total = sum(len(s) for s in sccs)
     done  = 0
 
     for scc in sccs:
-        # USRs in this SCC — summaries of these are not yet available to
-        # each other, so we exclude intra-SCC callees from the prompt.
         scc_set = set(scc)
 
         for usr in scc:
             done += 1
             fqn  = names[usr]
 
-            if not args.force:
-                existing = conn.execute(
+            if not force:
+                if conn.execute(
                     "SELECT 1 FROM summary WHERE usr = ?", (usr,)
-                ).fetchone()
-                if existing:
+                ).fetchone():
                     print(f"[{done}/{total}] skip (already summarized): {fqn}")
                     continue
 
-            # Collect summaries of callees that are already summarized
-            # (i.e. processed in earlier SCCs).
+            # Collect summaries of callees processed in earlier SCCs.
             callee_summaries: list[tuple[str, str]] = []
             for callee_usr in graph[usr]:
                 if callee_usr in scc_set:
@@ -184,8 +158,8 @@ def main() -> int:
                 if row:
                     callee_summaries.append(row)
 
-            prompt  = build_prompt(fqn, texts[usr], callee_summaries)
-            result  = summarize(prompt)
+            prompt = build_prompt(fqn, texts[usr], callee_summaries)
+            result = summarize(prompt)
 
             conn.execute(
                 "INSERT OR REPLACE INTO summary (usr, summary) VALUES (?, ?)",
@@ -193,10 +167,3 @@ def main() -> int:
             )
             conn.commit()
             print(f"[{done}/{total}] summarized: {fqn}")
-
-    conn.close()
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())

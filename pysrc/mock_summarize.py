@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Mock summarizer for testing summarize.py without a real LLM.
+Mock summarizer CLI for testing without a real LLM.
 
 Usage:
     mock_summarize.py <database> [--force]
@@ -10,9 +10,12 @@ Produces summaries of the form:
 where size is the number of characters in the source text.
 """
 
+import argparse
 import re
+import sqlite3
 import sys
-import summarize
+
+from summarize import summary_update
 
 
 def _mock(prompt: str) -> str:
@@ -28,7 +31,20 @@ def _mock(prompt: str) -> str:
     return f"{fqn} is a great function and has size of {size}"
 
 
-summarize.summarize = _mock
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Summarize C++ functions using a mock LLM (for testing).")
+    parser.add_argument("database", help="SQLite3 database file")
+    parser.add_argument("--force", action="store_true",
+                        help="Re-summarize even if a summary already exists")
+    args = parser.parse_args()
+
+    conn = sqlite3.connect(args.database)
+    conn.execute("PRAGMA journal_mode=WAL")
+    summary_update(conn, _mock, force=args.force)
+    conn.close()
+    return 0
+
 
 if __name__ == "__main__":
-    sys.exit(summarize.main())
+    sys.exit(main())
