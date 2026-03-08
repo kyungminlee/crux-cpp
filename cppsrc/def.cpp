@@ -14,13 +14,14 @@ class DefVisitor : public clang::RecursiveASTVisitor<DefVisitor> {
 
     // Emit one CSV row.
     // decl_for_usr: FunctionTemplateDecl for primary templates, FunctionDecl otherwise.
-    void emit(const clang::FunctionDecl *fd, const clang::Decl *decl_for_usr) {
+    void emit(const clang::FunctionDecl *fd, const clang::FunctionDecl *decl_for_usr) {
         const std::string file = expansion_file(sm_, fd->getBeginLoc());
         if (!under_root(file, root_))
             return;
         const bool is_tmpl = llvm::isa<clang::FunctionTemplateDecl>(decl_for_usr);
         const std::string row =
             csv_field(get_usr(decl_for_usr))                             + ','
+            + csv_field(get_usr(get_canonical(decl_for_usr))) + ','
             + csv_field(fd->getQualifiedNameAsString())                  + ','
             + csv_field(decl_kind(fd, is_tmpl))                          + ','
             + csv_field(parent_class(fd))                                + ','
@@ -55,7 +56,7 @@ public:
     bool VisitFunctionTemplateDecl(clang::FunctionTemplateDecl *ftd) {
         const auto *fd = ftd->getTemplatedDecl();
         if (!fd->doesThisDeclarationHaveABody()) return true;
-        emit(fd, ftd);
+        emit(fd, get_canonical(ftd));
         return true;
     }
 };
