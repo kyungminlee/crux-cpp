@@ -3,6 +3,7 @@
 #include "clang/AST/Expr.h"
 #include "clang/AST/ExprCXX.h"
 #include "clang/AST/RecursiveASTVisitor.h"
+#include "llvm/Support/ManagedStatic.h"
 
 #include <set>
 #include <vector>
@@ -149,6 +150,7 @@ public:
 };
 
 int main(int argc, char *argv[]) {
+    llvm::llvm_shutdown_obj shutdown_guard;
     try {
         std::set<std::string> seen;
         return run_tool(argc, argv, "caller_usr,callee_usr",

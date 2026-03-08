@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build
 
-Requires Homebrew LLVM (`brew install llvm`).
+### macOS (Homebrew LLVM)
 
 ```bash
 cmake -B build \
@@ -14,9 +14,27 @@ cmake -B build \
 cmake --build build
 ```
 
-`-DCMAKE_CXX_COMPILER` is required (not just `CMAKE_PREFIX_PATH`) so that `compile_commands.json` records Homebrew's `clang++` as the compiler. `-DCMAKE_EXPORT_COMPILE_COMMANDS=ON` is needed to enable self-testing with `def`/`call`.
+`-DCMAKE_CXX_COMPILER` is required (not just `CMAKE_PREFIX_PATH`) so that `compile_commands.json` records Homebrew's `clang++` as the compiler.
 
 `CMakeLists.txt` automatically queries the compiler for its `-resource-dir` and the SDK path via `xcrun`, and embeds them in the compile flags. This is necessary because LibTooling resolves the resource directory relative to its own binary path, not the LLVM installation, so without those flags `<cassert>` and system math constants would be missing when re-parsing project sources.
+
+### Linux (Ubuntu/Debian)
+
+Install dev packages first (e.g., LLVM 19):
+
+```bash
+sudo apt-get install llvm-19-dev libclang-19-dev clang-19
+```
+
+Then build using g++ as the host compiler (clang++ on Ubuntu has linker path issues with libstdc++):
+
+```bash
+cmake -B build \
+  -DCMAKE_PREFIX_PATH=/usr/lib/llvm-19 \
+  -DCMAKE_CXX_COMPILER=/usr/bin/g++ \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+cmake --build build
+```
 
 Binaries are output to `build/def` and `build/call`.
 
@@ -34,21 +52,21 @@ Both tools print TSV to stdout (with a header row). Rows from headers included b
 
 ## Architecture
 
-Both tools (`src/def.cpp`, `src/call.cpp`) are thin wrappers around `src/parser.hpp`.
+Both tools (`cppsrc/def.cpp`, `cppsrc/call.cpp`) are thin wrappers around `cppsrc/parser.hpp`.
 
-**`src/parser.hpp`** — shared header providing:
+**`cppsrc/parser.hpp`** — shared header providing:
 - `get_usr(Decl*)`: Clang USR via `clang::index::generateUSRForDecl`
 - `expansion_file` / `expansion_line`: source location helpers that follow macros to their invocation site
 - `under_root` / `fd_in_root`: path filtering against `--root`
 - `access_str`, `parent_class`: metadata helpers
 - `parse_args()` / `run_tool()`: CLI parsing + `ClangTool` runner using `JSONCompilationDatabase::loadFromDirectory`
 
-**`src/def.cpp`** — `DefVisitor : RecursiveASTVisitor`:
+**`cppsrc/def.cpp`** — `DefVisitor : RecursiveASTVisitor`:
 - `VisitFunctionDecl`: handles free functions, methods, constructors, destructors, conversion functions, and explicit/implicit template specializations. Skips the "templated decl" inside a `FunctionTemplateDecl` to avoid double-counting.
 - `VisitFunctionTemplateDecl`: handles primary templates (free and member); emits with the template's own USR.
 - `shouldVisitTemplateInstantiations() = true` to include implicit instantiations.
 
-**`src/call.cpp`** — `CallVisitor : RecursiveASTVisitor`:
+**`cppsrc/call.cpp`** — `CallVisitor : RecursiveASTVisitor`:
 - `Traverse{FunctionDecl,CXXMethodDecl,CXXConstructorDecl,CXXDestructorDecl,CXXConversionDecl,FunctionTemplateDecl}`: push caller USR onto a stack before descending, pop on exit. Uses `Traverse*` (not `Visit*`) because `RecursiveASTVisitor` dispatches on the concrete type and `Visit*` walk-up would conflate traversal with visitation.
 - `VisitCallExpr`: emits `caller_stack.back() → getDirectCallee()` for direct calls.
 - `VisitCXXConstructExpr`: emits constructor calls (which do not go through `CallExpr`).
