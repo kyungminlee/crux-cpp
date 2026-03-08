@@ -21,7 +21,7 @@ execute_process(
     OUTPUT_QUIET
 )
 
-foreach(tool def call class inheritance override)
+foreach(tool function call class inheritance override)
     add_test(
         NAME ${tool}_simple
         COMMAND bash "${CMAKE_CURRENT_SOURCE_DIR}/run_test.sh"
