@@ -92,11 +92,12 @@ public:
             return Base::TraverseCXXConversionDecl(d);
         });
     }
-    // Function templates (free and member): use the template's own USR.
+    // Function templates (free and member): use the templated decl's USR,
+    // matching the USR emitted by def for primary template rows.
     bool TraverseFunctionTemplateDecl(clang::FunctionTemplateDecl *D) {
         const auto *fd = D->getTemplatedDecl();
         if (fd->doesThisDeclarationHaveABody() && fd_in_root(fd, sm_, root_)) {
-            return withCaller(D, get_usr(D), [this](clang::FunctionTemplateDecl *d) {
+            return withCaller(D, get_usr(fd), [this](clang::FunctionTemplateDecl *d) {
                 return Base::TraverseFunctionTemplateDecl(d);
             });
         }

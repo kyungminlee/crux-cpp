@@ -44,7 +44,7 @@ public:
         const std::string row = csv_field(usr) + ','
                               + csv_field(canonical_usr) + ','
                               + csv_field(name) + ','
-                              + csv_field(filename) + ','
+                              + csv_field(fs::relative(filename, root_).string()) + ','
                               + std::to_string(start_line) + ','
                               + std::to_string(end_line);
 

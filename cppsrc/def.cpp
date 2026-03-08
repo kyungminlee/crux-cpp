@@ -14,17 +14,16 @@ class DefVisitor : public clang::RecursiveASTVisitor<DefVisitor> {
     llvm::raw_ostream &out_;
 
     // Emit one CSV row.
-    // decl_for_usr: FunctionTemplateDecl for primary templates, FunctionDecl otherwise.
-    void emit(const clang::FunctionDecl *fd, const clang::FunctionDecl *decl_for_usr) {
+    // is_template: true when fd is the templated decl of a FunctionTemplateDecl.
+    void emit(const clang::FunctionDecl *fd, bool is_template) {
         const std::string file = expansion_file(sm_, fd->getBeginLoc());
         if (!under_root(file, root_))
             return;
-        const bool is_tmpl = llvm::isa<clang::FunctionTemplateDecl>(decl_for_usr);
         const std::string row =
-            csv_field(get_usr(decl_for_usr))                             + ','
-            + csv_field(get_usr(get_canonical(decl_for_usr))) + ','
+            csv_field(get_usr(fd))                                       + ','
+            + csv_field(get_usr(get_canonical(fd)))                      + ','
             + csv_field(fd->getQualifiedNameAsString())                  + ','
-            + csv_field(decl_kind(fd, is_tmpl))                          + ','
+            + csv_field(decl_kind(fd, is_template))                      + ','
             + csv_field(parent_class(fd))                                + ','
             + csv_field(access_str(fd->getAccess()))                     + ','
             + csv_field(fs::relative(file, root_).string())              + ','
@@ -49,7 +48,7 @@ public:
     bool VisitFunctionDecl(clang::FunctionDecl *fd) {
         if (fd->getDescribedFunctionTemplate()) return true;
         if (!fd->doesThisDeclarationHaveABody()) return true;
-        emit(fd, fd);
+        emit(fd, false);
         return true;
     }
 
@@ -57,7 +56,7 @@ public:
     bool VisitFunctionTemplateDecl(clang::FunctionTemplateDecl *ftd) {
         const auto *fd = ftd->getTemplatedDecl();
         if (!fd->doesThisDeclarationHaveABody()) return true;
-        emit(fd, get_canonical(ftd));
+        emit(fd, true);
         return true;
     }
 };
@@ -98,7 +97,7 @@ int main(int argc, char *argv[]) {
     try {
         std::set<std::string> seen;
         return run_tool(argc, argv,
-            "usr,fully_qualified_name,kind,class,visibility,filename,start_line,end_line",
+            "usr,canonical_usr,fully_qualified_name,kind,class,visibility,filename,start_line,end_line",
             [&seen](const fs::path &root, llvm::raw_ostream &out) {
                 return std::make_unique<DefAction>(root, seen, out);
             });

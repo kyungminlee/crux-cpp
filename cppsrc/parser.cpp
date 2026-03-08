@@ -111,6 +111,11 @@ const clang::CXXRecordDecl * get_canonical(const clang::ClassTemplateDecl * CTD)
 const clang::CXXRecordDecl* get_canonical(const clang::CXXRecordDecl* RD) {
     if (!RD) return nullptr;
 
+    // Don't canonicalize explicit specializations — they have distinct definitions.
+    if (const auto *Spec = llvm::dyn_cast<clang::ClassTemplateSpecializationDecl>(RD))
+        if (Spec->getSpecializationKind() == clang::TSK_ExplicitSpecialization)
+            return RD->getDefinition() ? RD->getDefinition() : RD;
+
     const clang::CXXRecordDecl* Current = RD->getDefinition();
     if (!Current) Current = RD;
 
