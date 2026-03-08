@@ -4,16 +4,16 @@
 
 #include <set>
 
-// Extracts class information for CXX record declarations whose source file is
-// under root_dir.
-class ClassVisitor : public clang::RecursiveASTVisitor<ClassVisitor> {
+// Extracts direct base-class relationships for CXX record declarations whose
+// source file is under root_dir.  Each base specifier produces one row.
+class InheritanceVisitor : public clang::RecursiveASTVisitor<InheritanceVisitor> {
     const clang::SourceManager &sm_;
     const fs::path &root_;
     std::set<std::string> &seen_;
     llvm::raw_ostream &out_;
 
 public:
-    ClassVisitor(const clang::SourceManager &sm, const fs::path &root,
+    InheritanceVisitor(const clang::SourceManager &sm, const fs::path &root,
                  std::set<std::string> &seen, llvm::raw_ostream &out)
         : sm_(sm), root_(root), seen_(seen), out_(out) {}
 
@@ -24,71 +24,71 @@ public:
     bool VisitCXXRecordDecl(clang::CXXRecordDecl *decl) {
         // Only process the canonical definition.
         if (!decl->isThisDeclarationADefinition()) return true;
+        if (decl->getNumBases() == 0) return true;
 
         // Filter to declarations whose definition lives under root.
         const auto loc = sm_.getExpansionLoc(decl->getBeginLoc());
         if (!loc.isValid()) return true;
-
-        const auto filename = sm_.getFilename(loc).str();
-        if (!under_root(filename, root_)) return true;
+        if (!under_root(sm_.getFilename(loc).str(), root_)) return true;
 
         const std::string usr = get_usr(decl);
         if (usr.empty()) return true;
-        const std::string canonical_usr = get_usr(get_canonical(decl));
 
-        const std::string name = decl->getQualifiedNameAsString();
-        const auto start_line = sm_.getExpansionLineNumber(decl->getBeginLoc());
-        const auto end_line = sm_.getExpansionLineNumber(decl->getEndLoc());
+        for (const auto &base : decl->bases()) {
+            // Dependent base types (e.g. Base<T> with T still unresolved)
+            // have no concrete CXXRecordDecl — skip them.
+            const clang::CXXRecordDecl *base_decl =
+                base.getType()->getAsCXXRecordDecl();
+            if (!base_decl) continue;
 
-        const std::string row = csv_field(usr) + ','
-                              + csv_field(canonical_usr) + ','
-                              + csv_field(name) + ','
-                              + csv_field(filename) + ','
-                              + std::to_string(start_line) + ','
-                              + std::to_string(end_line);
+            const std::string parent_usr = get_usr(base_decl);
+            if (parent_usr.empty()) continue;
 
-        if (seen_.insert(row).second)
-            out_ << row << '\n';
-
+            const std::string row = csv_field(usr) + ','
+                                  + csv_field(parent_usr) + ','
+                                  + csv_field(access_str(base.getAccessSpecifier()));
+            if (seen_.insert(row).second)
+                out_ << row << '\n';
+        }
         return true;
     }
 };
 
-class ClassConsumer : public clang::ASTConsumer {
+class InheritanceConsumer : public clang::ASTConsumer {
     const fs::path &root_;
     std::set<std::string> &seen_;
     llvm::raw_ostream &out_;
 public:
-    ClassConsumer(const fs::path &root, std::set<std::string> &seen,
+    InheritanceConsumer(const fs::path &root, std::set<std::string> &seen,
                   llvm::raw_ostream &out)
         : root_(root), seen_(seen), out_(out) {}
 
     void HandleTranslationUnit(clang::ASTContext &ctx) override {
-        ClassVisitor v(ctx.getSourceManager(), root_, seen_, out_);
+        InheritanceVisitor v(ctx.getSourceManager(), root_, seen_, out_);
         v.TraverseDecl(ctx.getTranslationUnitDecl());
     }
 };
 
-class ClassAction : public clang::ASTFrontendAction {
+class InheritanceAction : public clang::ASTFrontendAction {
     fs::path root_;
     std::set<std::string> &seen_;
     llvm::raw_ostream &out_;
 public:
-    ClassAction(fs::path root, std::set<std::string> &seen, llvm::raw_ostream &out)
+    InheritanceAction(fs::path root, std::set<std::string> &seen, llvm::raw_ostream &out)
         : root_(std::move(root)), seen_(seen), out_(out) {}
 
     std::unique_ptr<clang::ASTConsumer>
     CreateASTConsumer(clang::CompilerInstance &, llvm::StringRef) override {
-        return std::make_unique<ClassConsumer>(root_, seen_, out_);
+        return std::make_unique<InheritanceConsumer>(root_, seen_, out_);
     }
 };
 
 int main(int argc, char *argv[]) {
     try {
         std::set<std::string> seen;
-        return run_tool(argc, argv, "usr,canonical_usr,fully_qualified_name,filename,start,end",
+        return run_tool(argc, argv, "usr,parent_usr,visibility",
             [&seen](const fs::path &root, llvm::raw_ostream &out) {
-                return std::make_unique<ClassAction>(root, seen, out);
+                return std::make_unique<InheritanceAction>(root, seen, out);
             });
     } catch (const std::exception &e) {
         llvm::errs() << "error: " << e.what() << '\n';

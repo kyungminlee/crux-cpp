@@ -49,7 +49,7 @@ add_library(parser parser.cpp)
 target_include_directories(parser PUBLIC ${LLVM_INCLUDE_DIRS} ${CLANG_INCLUDE_DIRS})
 target_link_libraries(parser PUBLIC ${CLANG_LINK_LIBS} ${LLVM_LINK_LIBS})
 
-foreach(target def call class)
+foreach(target def call class inheritance)
     add_executable(${target} ${target}.cpp)
     target_include_directories(${target} PRIVATE
         ${LLVM_INCLUDE_DIRS}
