@@ -61,6 +61,68 @@ bool fd_in_root(const clang::FunctionDecl *fd,
     return loc.isValid() && under_root(sm.getFilename(loc).str(), root);
 }
 
+const clang::FunctionDecl* get_canonical(const clang::FunctionDecl* FD) {
+    if (!FD) return nullptr;
+
+    // Don't canonicalize explicit specializations.
+    if (FD->getTemplateSpecializationKind() == clang::TSK_ExplicitSpecialization) {
+        return FD->getFirstDecl();
+    }
+
+    const clang::FunctionDecl* Current = FD;
+
+    while (true) {
+        const clang::FunctionDecl* Next = nullptr;
+
+        // 1. Check for standalone function templates (foo<int>)
+        if (clang::FunctionTemplateDecl const * Primary = Current->getPrimaryTemplate()) {
+            Next = Primary->getTemplatedDecl();
+        }
+        // 2. Check for class template members (MyClass<int>::foo)
+        else if (clang::FunctionDecl const * MemberInst = Current->getInstantiatedFromMemberFunction()) {
+            Next = MemberInst;
+        }
+        // 3. Safety net for standard implicit instantiations
+        else if (clang::FunctionDecl const * Pattern = Current->getTemplateInstantiationPattern()) {
+            Next = Pattern;
+        }
+
+        if (!Next || Next == Current) {
+            break;
+        }
+
+        Current = Next;
+    }
+    return Current->getFirstDecl();
+}
+
+const clang::CXXRecordDecl* get_canonical(const clang::CXXRecordDecl* RD) {
+    if (!RD) return nullptr;
+
+    const clang::CXXRecordDecl* Current = RD->getDefinition();
+    if (!Current) Current = RD;
+
+    while (true) {
+        const clang::CXXRecordDecl* Next = nullptr;
+
+        // 1. Check for class template specializations (MyClass<int> -> MyClass<T>)
+        if (auto* Spec = llvm::dyn_cast<clang::ClassTemplateSpecializationDecl>(Current)) {
+            Next = Spec->getSpecializedTemplate()->getTemplatedDecl();
+        }
+        // 2. Check for member classes of class templates
+        else if (const auto* MemberInst = Current->getInstantiatedFromMemberClass()) {
+            Next = MemberInst;
+        }
+
+        if (!Next || Next == Current) {
+            break;
+        }
+        Current = Next;
+    }
+
+    return Current;
+}
+
 // ── Metadata helpers ──────────────────────────────────────────────────────────
 
 std::string access_str(clang::AccessSpecifier as) {

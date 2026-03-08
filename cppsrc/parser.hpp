@@ -29,6 +29,9 @@ namespace fs = std::filesystem;
 
 std::string get_usr(const clang::Decl *decl);
 
+const clang::FunctionDecl* get_canonical(const clang::FunctionDecl* fd);
+const clang::CXXRecordDecl* get_canonical(const clang::CXXRecordDecl* rd);
+
 // ── Source location ───────────────────────────────────────────────────────────
 
 // Expansion location follows macros to their invocation site, per README.
