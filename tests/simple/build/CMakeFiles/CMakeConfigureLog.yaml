@@ -20,6 +20,8 @@ events:
     names:
       - "uname"
     candidate_directories:
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -42,6 +44,8 @@ events:
       - "/Library/TeX/texbin/"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/"
     searched_directories:
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/uname"
+      - "/opt/homebrew/opt/node@24/bin/uname"
       - "/Users/kyungminlee/.juliaup/bin/uname"
       - "/Users/kyungminlee/miniconda3/bin/uname"
       - "/Users/kyungminlee/miniconda3/condabin/uname"
@@ -54,7 +58,10 @@ events:
     found: "/usr/bin/uname"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -103,6 +110,8 @@ events:
       - "make"
       - "smake"
     candidate_directories:
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -125,6 +134,8 @@ events:
       - "/Library/TeX/texbin/"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/"
     searched_directories:
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/gmake"
+      - "/opt/homebrew/opt/node@24/bin/gmake"
       - "/Users/kyungminlee/.juliaup/bin/gmake"
       - "/Users/kyungminlee/miniconda3/bin/gmake"
       - "/Users/kyungminlee/miniconda3/condabin/gmake"
@@ -146,6 +157,8 @@ events:
       - "/Library/Apple/usr/bin/gmake"
       - "/Library/TeX/texbin/gmake"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/gmake"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/make"
+      - "/opt/homebrew/opt/node@24/bin/make"
       - "/Users/kyungminlee/.juliaup/bin/make"
       - "/Users/kyungminlee/miniconda3/bin/make"
       - "/Users/kyungminlee/miniconda3/condabin/make"
@@ -158,7 +171,10 @@ events:
     found: "/usr/bin/make"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -206,7 +222,10 @@ events:
     found: "/opt/homebrew/share/cmake/Modules/CMakeCXXCompilerId.cpp.in"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -247,7 +266,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
       
       The CXX compiler identification is Clang, found in:
-        /Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/4.2.2/CompilerIdCXX/a.out
+        /Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles/4.2.3/CompilerIdCXX/a.out
       
   -
     kind: "message-v1"
@@ -311,6 +330,8 @@ events:
       - "ar"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -334,6 +355,8 @@ events:
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/"
     searched_directories:
       - "/opt/homebrew/opt/llvm/bin/ar"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/ar"
+      - "/opt/homebrew/opt/node@24/bin/ar"
       - "/Users/kyungminlee/.juliaup/bin/ar"
       - "/Users/kyungminlee/miniconda3/bin/ar"
       - "/Users/kyungminlee/miniconda3/condabin/ar"
@@ -346,7 +369,10 @@ events:
     found: "/usr/bin/ar"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -389,6 +415,8 @@ events:
       - "ranlib"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -413,7 +441,10 @@ events:
     found: "/opt/homebrew/opt/llvm/bin/llvm-ranlib"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -455,6 +486,8 @@ events:
       - "strip"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -478,6 +511,8 @@ events:
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/"
     searched_directories:
       - "/opt/homebrew/opt/llvm/bin/strip"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/strip"
+      - "/opt/homebrew/opt/node@24/bin/strip"
       - "/Users/kyungminlee/.juliaup/bin/strip"
       - "/Users/kyungminlee/miniconda3/bin/strip"
       - "/Users/kyungminlee/miniconda3/condabin/strip"
@@ -490,7 +525,10 @@ events:
     found: "/usr/bin/strip"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -532,6 +570,8 @@ events:
       - "ld"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -555,6 +595,8 @@ events:
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/"
     searched_directories:
       - "/opt/homebrew/opt/llvm/bin/ld"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/ld"
+      - "/opt/homebrew/opt/node@24/bin/ld"
       - "/Users/kyungminlee/.juliaup/bin/ld"
       - "/Users/kyungminlee/miniconda3/bin/ld"
       - "/Users/kyungminlee/miniconda3/condabin/ld"
@@ -567,7 +609,10 @@ events:
     found: "/usr/bin/ld"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -610,6 +655,8 @@ events:
       - "nm"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -634,7 +681,10 @@ events:
     found: "/opt/homebrew/opt/llvm/bin/llvm-nm"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -677,6 +727,8 @@ events:
       - "objdump"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -701,7 +753,10 @@ events:
     found: "/opt/homebrew/opt/llvm/bin/llvm-objdump"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -744,6 +799,8 @@ events:
       - "objcopy"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -768,7 +825,10 @@ events:
     found: "/opt/homebrew/opt/llvm/bin/llvm-objcopy"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -811,6 +871,8 @@ events:
       - "readelf"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -835,7 +897,10 @@ events:
     found: "/opt/homebrew/opt/llvm/bin/llvm-readelf"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -878,6 +943,8 @@ events:
       - "dlltool"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -902,7 +969,10 @@ events:
     found: "/opt/homebrew/opt/llvm/bin/llvm-dlltool"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -945,6 +1015,8 @@ events:
       - "addr2line"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -969,7 +1041,10 @@ events:
     found: "/opt/homebrew/opt/llvm/bin/llvm-addr2line"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -1011,6 +1086,8 @@ events:
       - "tapi"
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -1034,6 +1111,8 @@ events:
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/"
     searched_directories:
       - "/opt/homebrew/opt/llvm/bin/tapi"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/tapi"
+      - "/opt/homebrew/opt/node@24/bin/tapi"
       - "/Users/kyungminlee/.juliaup/bin/tapi"
       - "/Users/kyungminlee/miniconda3/bin/tapi"
       - "/Users/kyungminlee/miniconda3/condabin/tapi"
@@ -1058,7 +1137,10 @@ events:
     found: false
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -1102,8 +1184,10 @@ events:
       - "llvm-ar21"
       - "llvm-ar"
     candidate_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/"
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -1126,8 +1210,10 @@ events:
       - "/Library/TeX/texbin/"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/"
     searched_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/llvm-ar-21.1"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/llvm-ar-21.1"
       - "/opt/homebrew/opt/llvm/bin/llvm-ar-21.1"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/llvm-ar-21.1"
+      - "/opt/homebrew/opt/node@24/bin/llvm-ar-21.1"
       - "/Users/kyungminlee/.juliaup/bin/llvm-ar-21.1"
       - "/Users/kyungminlee/miniconda3/bin/llvm-ar-21.1"
       - "/Users/kyungminlee/miniconda3/condabin/llvm-ar-21.1"
@@ -1149,8 +1235,10 @@ events:
       - "/Library/Apple/usr/bin/llvm-ar-21.1"
       - "/Library/TeX/texbin/llvm-ar-21.1"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/llvm-ar-21.1"
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/llvm-ar-21"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/llvm-ar-21"
       - "/opt/homebrew/opt/llvm/bin/llvm-ar-21"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/llvm-ar-21"
+      - "/opt/homebrew/opt/node@24/bin/llvm-ar-21"
       - "/Users/kyungminlee/.juliaup/bin/llvm-ar-21"
       - "/Users/kyungminlee/miniconda3/bin/llvm-ar-21"
       - "/Users/kyungminlee/miniconda3/condabin/llvm-ar-21"
@@ -1172,8 +1260,10 @@ events:
       - "/Library/Apple/usr/bin/llvm-ar-21"
       - "/Library/TeX/texbin/llvm-ar-21"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/llvm-ar-21"
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/llvm-ar21"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/llvm-ar21"
       - "/opt/homebrew/opt/llvm/bin/llvm-ar21"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/llvm-ar21"
+      - "/opt/homebrew/opt/node@24/bin/llvm-ar21"
       - "/Users/kyungminlee/.juliaup/bin/llvm-ar21"
       - "/Users/kyungminlee/miniconda3/bin/llvm-ar21"
       - "/Users/kyungminlee/miniconda3/condabin/llvm-ar21"
@@ -1195,10 +1285,13 @@ events:
       - "/Library/Apple/usr/bin/llvm-ar21"
       - "/Library/TeX/texbin/llvm-ar21"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/llvm-ar21"
-    found: "/opt/homebrew/Cellar/llvm/21.1.8/bin/llvm-ar"
+    found: "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/llvm-ar"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -1242,8 +1335,10 @@ events:
       - "llvm-ranlib21"
       - "llvm-ranlib"
     candidate_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/"
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -1266,8 +1361,10 @@ events:
       - "/Library/TeX/texbin/"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/"
     searched_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/llvm-ranlib-21.1"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/llvm-ranlib-21.1"
       - "/opt/homebrew/opt/llvm/bin/llvm-ranlib-21.1"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/llvm-ranlib-21.1"
+      - "/opt/homebrew/opt/node@24/bin/llvm-ranlib-21.1"
       - "/Users/kyungminlee/.juliaup/bin/llvm-ranlib-21.1"
       - "/Users/kyungminlee/miniconda3/bin/llvm-ranlib-21.1"
       - "/Users/kyungminlee/miniconda3/condabin/llvm-ranlib-21.1"
@@ -1289,8 +1386,10 @@ events:
       - "/Library/Apple/usr/bin/llvm-ranlib-21.1"
       - "/Library/TeX/texbin/llvm-ranlib-21.1"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/llvm-ranlib-21.1"
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/llvm-ranlib-21"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/llvm-ranlib-21"
       - "/opt/homebrew/opt/llvm/bin/llvm-ranlib-21"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/llvm-ranlib-21"
+      - "/opt/homebrew/opt/node@24/bin/llvm-ranlib-21"
       - "/Users/kyungminlee/.juliaup/bin/llvm-ranlib-21"
       - "/Users/kyungminlee/miniconda3/bin/llvm-ranlib-21"
       - "/Users/kyungminlee/miniconda3/condabin/llvm-ranlib-21"
@@ -1312,8 +1411,10 @@ events:
       - "/Library/Apple/usr/bin/llvm-ranlib-21"
       - "/Library/TeX/texbin/llvm-ranlib-21"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/llvm-ranlib-21"
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/llvm-ranlib21"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/llvm-ranlib21"
       - "/opt/homebrew/opt/llvm/bin/llvm-ranlib21"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/llvm-ranlib21"
+      - "/opt/homebrew/opt/node@24/bin/llvm-ranlib21"
       - "/Users/kyungminlee/.juliaup/bin/llvm-ranlib21"
       - "/Users/kyungminlee/miniconda3/bin/llvm-ranlib21"
       - "/Users/kyungminlee/miniconda3/condabin/llvm-ranlib21"
@@ -1335,10 +1436,13 @@ events:
       - "/Library/Apple/usr/bin/llvm-ranlib21"
       - "/Library/TeX/texbin/llvm-ranlib21"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/llvm-ranlib21"
-    found: "/opt/homebrew/Cellar/llvm/21.1.8/bin/llvm-ranlib"
+    found: "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/llvm-ranlib"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -1382,8 +1486,10 @@ events:
       - "clang-scan-deps21"
       - "clang-scan-deps"
     candidate_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/"
       - "/opt/homebrew/opt/llvm/bin/"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -1406,8 +1512,10 @@ events:
       - "/Library/TeX/texbin/"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/"
     searched_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/clang-scan-deps-21.1"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/clang-scan-deps-21.1"
       - "/opt/homebrew/opt/llvm/bin/clang-scan-deps-21.1"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/clang-scan-deps-21.1"
+      - "/opt/homebrew/opt/node@24/bin/clang-scan-deps-21.1"
       - "/Users/kyungminlee/.juliaup/bin/clang-scan-deps-21.1"
       - "/Users/kyungminlee/miniconda3/bin/clang-scan-deps-21.1"
       - "/Users/kyungminlee/miniconda3/condabin/clang-scan-deps-21.1"
@@ -1429,8 +1537,10 @@ events:
       - "/Library/Apple/usr/bin/clang-scan-deps-21.1"
       - "/Library/TeX/texbin/clang-scan-deps-21.1"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/clang-scan-deps-21.1"
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/clang-scan-deps-21"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/clang-scan-deps-21"
       - "/opt/homebrew/opt/llvm/bin/clang-scan-deps-21"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/clang-scan-deps-21"
+      - "/opt/homebrew/opt/node@24/bin/clang-scan-deps-21"
       - "/Users/kyungminlee/.juliaup/bin/clang-scan-deps-21"
       - "/Users/kyungminlee/miniconda3/bin/clang-scan-deps-21"
       - "/Users/kyungminlee/miniconda3/condabin/clang-scan-deps-21"
@@ -1452,8 +1562,10 @@ events:
       - "/Library/Apple/usr/bin/clang-scan-deps-21"
       - "/Library/TeX/texbin/clang-scan-deps-21"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/clang-scan-deps-21"
-      - "/opt/homebrew/Cellar/llvm/21.1.8/bin/clang-scan-deps21"
+      - "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/clang-scan-deps21"
       - "/opt/homebrew/opt/llvm/bin/clang-scan-deps21"
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/clang-scan-deps21"
+      - "/opt/homebrew/opt/node@24/bin/clang-scan-deps21"
       - "/Users/kyungminlee/.juliaup/bin/clang-scan-deps21"
       - "/Users/kyungminlee/miniconda3/bin/clang-scan-deps21"
       - "/Users/kyungminlee/miniconda3/condabin/clang-scan-deps21"
@@ -1475,10 +1587,13 @@ events:
       - "/Library/Apple/usr/bin/clang-scan-deps21"
       - "/Library/TeX/texbin/clang-scan-deps21"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/clang-scan-deps21"
-    found: "/opt/homebrew/Cellar/llvm/21.1.8/bin/clang-scan-deps"
+    found: "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/clang-scan-deps"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -1519,6 +1634,8 @@ events:
     names:
       - "install_name_tool"
     candidate_directories:
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+      - "/opt/homebrew/opt/node@24/bin/"
       - "/Users/kyungminlee/.juliaup/bin/"
       - "/Users/kyungminlee/miniconda3/bin/"
       - "/Users/kyungminlee/miniconda3/condabin/"
@@ -1541,6 +1658,8 @@ events:
       - "/Library/TeX/texbin/"
       - "/Users/kyungminlee/Applications/Ghostty.app/Contents/MacOS/"
     searched_directories:
+      - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin/install_name_tool"
+      - "/opt/homebrew/opt/node@24/bin/install_name_tool"
       - "/Users/kyungminlee/.juliaup/bin/install_name_tool"
       - "/Users/kyungminlee/miniconda3/bin/install_name_tool"
       - "/Users/kyungminlee/miniconda3/condabin/install_name_tool"
@@ -1553,7 +1672,10 @@ events:
     found: "/usr/bin/install_name_tool"
     search_context:
       ENV{PATH}:
+        - "/Users/kyungminlee/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/.juliaup/bin"
+        - "/opt/homebrew/opt/node@24/bin"
         - "/Users/kyungminlee/miniconda3/bin"
         - "/Users/kyungminlee/miniconda3/condabin"
         - "/Users/kyungminlee/.local/bin"
@@ -1584,14 +1706,14 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/CMakeScratch/TryCompile-CERCcK"
-      binary: "/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/CMakeScratch/TryCompile-CERCcK"
+      source: "/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles/CMakeScratch/TryCompile-UWTVoA"
+      binary: "/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles/CMakeScratch/TryCompile-UWTVoA"
     cmakeVariables:
-      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/opt/homebrew/Cellar/llvm/21.1.8/bin/clang-scan-deps"
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/clang-scan-deps"
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
-      CMAKE_EXE_LINKER_FLAGS: "-Wl,-rpath,/Users/kyungminlee/.tea"
+      CMAKE_EXE_LINKER_FLAGS: ""
       CMAKE_OSX_ARCHITECTURES: ""
       CMAKE_OSX_DEPLOYMENT_TARGET: ""
       CMAKE_OSX_SYSROOT: ""
@@ -1599,43 +1721,43 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/CMakeScratch/TryCompile-CERCcK'
+        Change Dir: '/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles/CMakeScratch/TryCompile-UWTVoA'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_be973/fast
-        /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_be973.dir/build.make CMakeFiles/cmTC_be973.dir/build
-        Building CXX object CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o
-        /opt/homebrew/opt/llvm/bin/clang++   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9488f/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_9488f.dir/build.make CMakeFiles/cmTC_9488f.dir/build
+        Building CXX object CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o
+        /opt/homebrew/opt/llvm/bin/clang++   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Homebrew clang version 21.1.8
         Target: arm64-apple-darwin25.3.0
         Thread model: posix
-        InstalledDir: /opt/homebrew/Cellar/llvm/21.1.8/bin
+        InstalledDir: /opt/homebrew/Cellar/llvm/21.1.8_1/bin
         Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg
         System configuration file directory: /opt/homebrew/etc/clang
         User configuration file directory: /Users/kyungminlee/.config/clang
         clang++: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
          (in-process)
-         "/opt/homebrew/Cellar/llvm/21.1.8/bin/clang-21" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=26.2 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-modulemap-allow-subdirectory-search -enable-tlsdesc -target-cpu apple-m1 -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +ccpp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +flagm -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/CMakeScratch/TryCompile-CERCcK -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/CMakeScratch/TryCompile-CERCcK -resource-dir /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21 -dependency-file CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -internal-isystem /opt/homebrew/Cellar/llvm/21.1.8/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+         "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/clang-21" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=26.2 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-modulemap-allow-subdirectory-search -enable-tlsdesc -target-cpu apple-m1 -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +ccpp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +flagm -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles/CMakeScratch/TryCompile-UWTVoA -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles/CMakeScratch/TryCompile-UWTVoA -resource-dir /opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21 -dependency-file CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -internal-isystem /opt/homebrew/Cellar/llvm/21.1.8_1/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         clang -cc1 version 21.1.8 based upon LLVM 21.1.8 default target arm64-apple-darwin25.3.0
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include"
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks"
         #include "..." search starts here:
         #include <...> search starts here:
-         /opt/homebrew/Cellar/llvm/21.1.8/bin/../include/c++/v1
-         /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/include
+         /opt/homebrew/Cellar/llvm/21.1.8_1/bin/../include/c++/v1
+         /opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/include
          /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include
          /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks (framework directory)
          /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks (framework directory)
         End of search list.
-        Linking CXX executable cmTC_be973
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_be973.dir/link.txt --verbose=1
+        Linking CXX executable cmTC_9488f
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9488f.dir/link.txt --verbose=1
         Homebrew clang version 21.1.8
         Target: arm64-apple-darwin25.3.0
         Thread model: posix
-        InstalledDir: /opt/homebrew/Cellar/llvm/21.1.8/bin
+        InstalledDir: /opt/homebrew/Cellar/llvm/21.1.8_1/bin
         Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg
         System configuration file directory: /opt/homebrew/etc/clang
         User configuration file directory: /Users/kyungminlee/.config/clang
-         "/usr/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/21.1.8/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_be973 -search_paths_first -headerpad_max_install_names -rpath /Users/kyungminlee/.tea -v CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/lib/darwin/libclang_rt.osx.a
+         "/usr/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/21.1.8_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_9488f -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/lib/darwin/libclang_rt.osx.a
         @(#)PROGRAM:ld PROJECT:ld-1230.1
         BUILD 06:36:05 Dec  2 2025
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em armv8m.main armv8.1m.main
@@ -1647,7 +1769,7 @@ events:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/lib/swift
         Framework search paths:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks
-        /opt/homebrew/opt/llvm/bin/clang++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -Wl,-rpath,/Users/kyungminlee/.tea -v -Wl,-v CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_be973
+        /opt/homebrew/opt/llvm/bin/clang++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_9488f
         
       exitCode: 0
   -
@@ -1669,14 +1791,14 @@ events:
       Parsed CXX implicit include dir info: rv=done
         found start of include info
         found start of implicit include info
-          add: [/opt/homebrew/Cellar/llvm/21.1.8/bin/../include/c++/v1]
-          add: [/opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/include]
+          add: [/opt/homebrew/Cellar/llvm/21.1.8_1/bin/../include/c++/v1]
+          add: [/opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/include]
           add: [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include]
         end of search list found
-        collapse include dir [/opt/homebrew/Cellar/llvm/21.1.8/bin/../include/c++/v1] ==> [/opt/homebrew/Cellar/llvm/21.1.8/include/c++/v1]
-        collapse include dir [/opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/include] ==> [/opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/include]
+        collapse include dir [/opt/homebrew/Cellar/llvm/21.1.8_1/bin/../include/c++/v1] ==> [/opt/homebrew/Cellar/llvm/21.1.8_1/include/c++/v1]
+        collapse include dir [/opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/include] ==> [/opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/include]
         collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include]
-        implicit include dirs: [/opt/homebrew/Cellar/llvm/21.1.8/include/c++/v1;/opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/include;/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include]
+        implicit include dirs: [/opt/homebrew/Cellar/llvm/21.1.8_1/include/c++/v1;/opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/include;/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include]
       
       
   -
@@ -1689,47 +1811,47 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/CMakeScratch/TryCompile-CERCcK']
+        ignore line: [Change Dir: '/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles/CMakeScratch/TryCompile-UWTVoA']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_be973/fast]
-        ignore line: [/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_be973.dir/build.make CMakeFiles/cmTC_be973.dir/build]
-        ignore line: [Building CXX object CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/opt/homebrew/opt/llvm/bin/clang++   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9488f/fast]
+        ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_9488f.dir/build.make CMakeFiles/cmTC_9488f.dir/build]
+        ignore line: [Building CXX object CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/opt/homebrew/opt/llvm/bin/clang++   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Homebrew clang version 21.1.8]
         ignore line: [Target: arm64-apple-darwin25.3.0]
         ignore line: [Thread model: posix]
-        ignore line: [InstalledDir: /opt/homebrew/Cellar/llvm/21.1.8/bin]
+        ignore line: [InstalledDir: /opt/homebrew/Cellar/llvm/21.1.8_1/bin]
         ignore line: [Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg]
         ignore line: [System configuration file directory: /opt/homebrew/etc/clang]
         ignore line: [User configuration file directory: /Users/kyungminlee/.config/clang]
         ignore line: [clang++: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
         ignore line: [ (in-process)]
-        ignore line: [ "/opt/homebrew/Cellar/llvm/21.1.8/bin/clang-21" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=26.2 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-modulemap-allow-subdirectory-search -enable-tlsdesc -target-cpu apple-m1 -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +ccpp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +flagm -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/CMakeScratch/TryCompile-CERCcK -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/CMakeScratch/TryCompile-CERCcK -resource-dir /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21 -dependency-file CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -internal-isystem /opt/homebrew/Cellar/llvm/21.1.8/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [ "/opt/homebrew/Cellar/llvm/21.1.8_1/bin/clang-21" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=26.2 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-modulemap-allow-subdirectory-search -enable-tlsdesc -target-cpu apple-m1 -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +ccpp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +flagm -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles/CMakeScratch/TryCompile-UWTVoA -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles/CMakeScratch/TryCompile-UWTVoA -resource-dir /opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21 -dependency-file CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -internal-isystem /opt/homebrew/Cellar/llvm/21.1.8_1/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [clang -cc1 version 21.1.8 based upon LLVM 21.1.8 default target arm64-apple-darwin25.3.0]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include"]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks"]
         ignore line: [#include "..." search starts here:]
         ignore line: [#include <...> search starts here:]
-        ignore line: [ /opt/homebrew/Cellar/llvm/21.1.8/bin/../include/c++/v1]
-        ignore line: [ /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/include]
+        ignore line: [ /opt/homebrew/Cellar/llvm/21.1.8_1/bin/../include/c++/v1]
+        ignore line: [ /opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/include]
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include]
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks (framework directory)]
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks (framework directory)]
         ignore line: [End of search list.]
-        ignore line: [Linking CXX executable cmTC_be973]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_be973.dir/link.txt --verbose=1]
+        ignore line: [Linking CXX executable cmTC_9488f]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9488f.dir/link.txt --verbose=1]
         ignore line: [Homebrew clang version 21.1.8]
         ignore line: [Target: arm64-apple-darwin25.3.0]
         ignore line: [Thread model: posix]
-        ignore line: [InstalledDir: /opt/homebrew/Cellar/llvm/21.1.8/bin]
+        ignore line: [InstalledDir: /opt/homebrew/Cellar/llvm/21.1.8_1/bin]
         ignore line: [Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg]
         ignore line: [System configuration file directory: /opt/homebrew/etc/clang]
         ignore line: [User configuration file directory: /Users/kyungminlee/.config/clang]
-        link line: [ "/usr/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/21.1.8/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_be973 -search_paths_first -headerpad_max_install_names -rpath /Users/kyungminlee/.tea -v CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/lib/darwin/libclang_rt.osx.a]
+        link line: [ "/usr/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/21.1.8_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_9488f -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/lib/darwin/libclang_rt.osx.a]
           arg [/usr/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
-          arg [/opt/homebrew/Cellar/llvm/21.1.8/lib/libLTO.dylib] ==> skip value of -lto_library
+          arg [/opt/homebrew/Cellar/llvm/21.1.8_1/lib/libLTO.dylib] ==> skip value of -lto_library
           arg [-dynamic] ==> ignore
           arg [-arch] ==> ignore
           arg [arm64] ==> ignore
@@ -1742,21 +1864,19 @@ events:
           arg [-mllvm] ==> ignore
           arg [-enable-linkonceodr-outlining] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_be973] ==> ignore
+          arg [cmTC_9488f] ==> ignore
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
-          arg [-rpath] ==> ignore
-          arg [/Users/kyungminlee/.tea] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_be973.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_9488f.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lc++] ==> lib [c++]
           arg [-lSystem] ==> lib [System]
-          arg [/opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/lib/darwin/libclang_rt.osx.a] ==> lib [/opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/lib/darwin/libclang_rt.osx.a]
+          arg [/opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/lib/darwin/libclang_rt.osx.a] ==> lib [/opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/lib/darwin/libclang_rt.osx.a]
         linker tool for 'CXX': /usr/bin/ld
         Library search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/lib;/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/lib/swift]
         Framework search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks]
         remove lib [System]
-        remove lib [/opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21/lib/darwin/libclang_rt.osx.a]
+        remove lib [/opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21/lib/darwin/libclang_rt.osx.a]
         collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/lib] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/lib]
         collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/lib/swift] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/lib/swift]
         collapse framework dir [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks]

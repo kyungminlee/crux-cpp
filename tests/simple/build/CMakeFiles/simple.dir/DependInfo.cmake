@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/kyungminlee/Code/extract-cpp/examples/simple/main.cpp" "CMakeFiles/simple.dir/main.cpp.o" "gcc" "CMakeFiles/simple.dir/main.cpp.o.d"
-  "/Users/kyungminlee/Code/extract-cpp/examples/simple/math.cpp" "CMakeFiles/simple.dir/math.cpp.o" "gcc" "CMakeFiles/simple.dir/math.cpp.o.d"
-  "/Users/kyungminlee/Code/extract-cpp/examples/simple/shapes.cpp" "CMakeFiles/simple.dir/shapes.cpp.o" "gcc" "CMakeFiles/simple.dir/shapes.cpp.o.d"
-  "/Users/kyungminlee/Code/extract-cpp/examples/simple/storage.cpp" "CMakeFiles/simple.dir/storage.cpp.o" "gcc" "CMakeFiles/simple.dir/storage.cpp.o.d"
+  "/Users/kyungminlee/Code/crux-cpp/tests/simple/main.cpp" "CMakeFiles/simple.dir/main.cpp.o" "gcc" "CMakeFiles/simple.dir/main.cpp.o.d"
+  "/Users/kyungminlee/Code/crux-cpp/tests/simple/math.cpp" "CMakeFiles/simple.dir/math.cpp.o" "gcc" "CMakeFiles/simple.dir/math.cpp.o.d"
+  "/Users/kyungminlee/Code/crux-cpp/tests/simple/shapes.cpp" "CMakeFiles/simple.dir/shapes.cpp.o" "gcc" "CMakeFiles/simple.dir/shapes.cpp.o.d"
+  "/Users/kyungminlee/Code/crux-cpp/tests/simple/storage.cpp" "CMakeFiles/simple.dir/storage.cpp.o" "gcc" "CMakeFiles/simple.dir/storage.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

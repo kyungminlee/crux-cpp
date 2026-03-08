@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/Users/kyungminlee/Code/extract-cpp/examples/simple/build/cmake_install.cmake"
+		"/Users/kyungminlee/Code/crux-cpp/tests/simple/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

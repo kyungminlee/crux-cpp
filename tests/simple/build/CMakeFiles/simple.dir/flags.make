@@ -6,7 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -stdlib=libc++ -resource-dir /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -stdlib=libc++ -resource-dir /opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
 
-CXX_FLAGS = -std=gnu++17 -arch arm64 -stdlib=libc++ -resource-dir /opt/homebrew/Cellar/llvm/21.1.8/lib/clang/21 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+CXX_FLAGS = -std=gnu++17 -arch arm64 -stdlib=libc++ -resource-dir /opt/homebrew/Cellar/llvm/21.1.8_1/lib/clang/21 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
 

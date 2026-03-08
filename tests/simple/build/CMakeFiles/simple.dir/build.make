@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/kyungminlee/Code/extract-cpp/examples/simple
+CMAKE_SOURCE_DIR = /Users/kyungminlee/Code/crux-cpp/tests/simple
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/kyungminlee/Code/extract-cpp/examples/simple/build
+CMAKE_BINARY_DIR = /Users/kyungminlee/Code/crux-cpp/tests/simple/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/simple.dir/depend.make
@@ -73,60 +73,60 @@ CMakeFiles/simple.dir/codegen:
 .PHONY : CMakeFiles/simple.dir/codegen
 
 CMakeFiles/simple.dir/shapes.cpp.o: CMakeFiles/simple.dir/flags.make
-CMakeFiles/simple.dir/shapes.cpp.o: /Users/kyungminlee/Code/extract-cpp/examples/simple/shapes.cpp
+CMakeFiles/simple.dir/shapes.cpp.o: /Users/kyungminlee/Code/crux-cpp/tests/simple/shapes.cpp
 CMakeFiles/simple.dir/shapes.cpp.o: CMakeFiles/simple.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/simple.dir/shapes.cpp.o"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/simple.dir/shapes.cpp.o -MF CMakeFiles/simple.dir/shapes.cpp.o.d -o CMakeFiles/simple.dir/shapes.cpp.o -c /Users/kyungminlee/Code/extract-cpp/examples/simple/shapes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/simple.dir/shapes.cpp.o"
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/simple.dir/shapes.cpp.o -MF CMakeFiles/simple.dir/shapes.cpp.o.d -o CMakeFiles/simple.dir/shapes.cpp.o -c /Users/kyungminlee/Code/crux-cpp/tests/simple/shapes.cpp
 
 CMakeFiles/simple.dir/shapes.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/simple.dir/shapes.cpp.i"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyungminlee/Code/extract-cpp/examples/simple/shapes.cpp > CMakeFiles/simple.dir/shapes.cpp.i
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyungminlee/Code/crux-cpp/tests/simple/shapes.cpp > CMakeFiles/simple.dir/shapes.cpp.i
 
 CMakeFiles/simple.dir/shapes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/simple.dir/shapes.cpp.s"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyungminlee/Code/extract-cpp/examples/simple/shapes.cpp -o CMakeFiles/simple.dir/shapes.cpp.s
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyungminlee/Code/crux-cpp/tests/simple/shapes.cpp -o CMakeFiles/simple.dir/shapes.cpp.s
 
 CMakeFiles/simple.dir/math.cpp.o: CMakeFiles/simple.dir/flags.make
-CMakeFiles/simple.dir/math.cpp.o: /Users/kyungminlee/Code/extract-cpp/examples/simple/math.cpp
+CMakeFiles/simple.dir/math.cpp.o: /Users/kyungminlee/Code/crux-cpp/tests/simple/math.cpp
 CMakeFiles/simple.dir/math.cpp.o: CMakeFiles/simple.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/simple.dir/math.cpp.o"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/simple.dir/math.cpp.o -MF CMakeFiles/simple.dir/math.cpp.o.d -o CMakeFiles/simple.dir/math.cpp.o -c /Users/kyungminlee/Code/extract-cpp/examples/simple/math.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/simple.dir/math.cpp.o"
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/simple.dir/math.cpp.o -MF CMakeFiles/simple.dir/math.cpp.o.d -o CMakeFiles/simple.dir/math.cpp.o -c /Users/kyungminlee/Code/crux-cpp/tests/simple/math.cpp
 
 CMakeFiles/simple.dir/math.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/simple.dir/math.cpp.i"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyungminlee/Code/extract-cpp/examples/simple/math.cpp > CMakeFiles/simple.dir/math.cpp.i
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyungminlee/Code/crux-cpp/tests/simple/math.cpp > CMakeFiles/simple.dir/math.cpp.i
 
 CMakeFiles/simple.dir/math.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/simple.dir/math.cpp.s"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyungminlee/Code/extract-cpp/examples/simple/math.cpp -o CMakeFiles/simple.dir/math.cpp.s
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyungminlee/Code/crux-cpp/tests/simple/math.cpp -o CMakeFiles/simple.dir/math.cpp.s
 
 CMakeFiles/simple.dir/storage.cpp.o: CMakeFiles/simple.dir/flags.make
-CMakeFiles/simple.dir/storage.cpp.o: /Users/kyungminlee/Code/extract-cpp/examples/simple/storage.cpp
+CMakeFiles/simple.dir/storage.cpp.o: /Users/kyungminlee/Code/crux-cpp/tests/simple/storage.cpp
 CMakeFiles/simple.dir/storage.cpp.o: CMakeFiles/simple.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/simple.dir/storage.cpp.o"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/simple.dir/storage.cpp.o -MF CMakeFiles/simple.dir/storage.cpp.o.d -o CMakeFiles/simple.dir/storage.cpp.o -c /Users/kyungminlee/Code/extract-cpp/examples/simple/storage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/simple.dir/storage.cpp.o"
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/simple.dir/storage.cpp.o -MF CMakeFiles/simple.dir/storage.cpp.o.d -o CMakeFiles/simple.dir/storage.cpp.o -c /Users/kyungminlee/Code/crux-cpp/tests/simple/storage.cpp
 
 CMakeFiles/simple.dir/storage.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/simple.dir/storage.cpp.i"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyungminlee/Code/extract-cpp/examples/simple/storage.cpp > CMakeFiles/simple.dir/storage.cpp.i
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyungminlee/Code/crux-cpp/tests/simple/storage.cpp > CMakeFiles/simple.dir/storage.cpp.i
 
 CMakeFiles/simple.dir/storage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/simple.dir/storage.cpp.s"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyungminlee/Code/extract-cpp/examples/simple/storage.cpp -o CMakeFiles/simple.dir/storage.cpp.s
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyungminlee/Code/crux-cpp/tests/simple/storage.cpp -o CMakeFiles/simple.dir/storage.cpp.s
 
 CMakeFiles/simple.dir/main.cpp.o: CMakeFiles/simple.dir/flags.make
-CMakeFiles/simple.dir/main.cpp.o: /Users/kyungminlee/Code/extract-cpp/examples/simple/main.cpp
+CMakeFiles/simple.dir/main.cpp.o: /Users/kyungminlee/Code/crux-cpp/tests/simple/main.cpp
 CMakeFiles/simple.dir/main.cpp.o: CMakeFiles/simple.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/simple.dir/main.cpp.o"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/simple.dir/main.cpp.o -MF CMakeFiles/simple.dir/main.cpp.o.d -o CMakeFiles/simple.dir/main.cpp.o -c /Users/kyungminlee/Code/extract-cpp/examples/simple/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/simple.dir/main.cpp.o"
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/simple.dir/main.cpp.o -MF CMakeFiles/simple.dir/main.cpp.o.d -o CMakeFiles/simple.dir/main.cpp.o -c /Users/kyungminlee/Code/crux-cpp/tests/simple/main.cpp
 
 CMakeFiles/simple.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/simple.dir/main.cpp.i"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyungminlee/Code/extract-cpp/examples/simple/main.cpp > CMakeFiles/simple.dir/main.cpp.i
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyungminlee/Code/crux-cpp/tests/simple/main.cpp > CMakeFiles/simple.dir/main.cpp.i
 
 CMakeFiles/simple.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/simple.dir/main.cpp.s"
-	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyungminlee/Code/extract-cpp/examples/simple/main.cpp -o CMakeFiles/simple.dir/main.cpp.s
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyungminlee/Code/crux-cpp/tests/simple/main.cpp -o CMakeFiles/simple.dir/main.cpp.s
 
 # Object files for target simple
 simple_OBJECTS = \
@@ -144,7 +144,7 @@ simple: CMakeFiles/simple.dir/storage.cpp.o
 simple: CMakeFiles/simple.dir/main.cpp.o
 simple: CMakeFiles/simple.dir/build.make
 simple: CMakeFiles/simple.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable simple"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable simple"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simple.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -156,6 +156,6 @@ CMakeFiles/simple.dir/clean:
 .PHONY : CMakeFiles/simple.dir/clean
 
 CMakeFiles/simple.dir/depend:
-	cd /Users/kyungminlee/Code/extract-cpp/examples/simple/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kyungminlee/Code/extract-cpp/examples/simple /Users/kyungminlee/Code/extract-cpp/examples/simple /Users/kyungminlee/Code/extract-cpp/examples/simple/build /Users/kyungminlee/Code/extract-cpp/examples/simple/build /Users/kyungminlee/Code/extract-cpp/examples/simple/build/CMakeFiles/simple.dir/DependInfo.cmake "--color=$(COLOR)" simple
+	cd /Users/kyungminlee/Code/crux-cpp/tests/simple/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kyungminlee/Code/crux-cpp/tests/simple /Users/kyungminlee/Code/crux-cpp/tests/simple /Users/kyungminlee/Code/crux-cpp/tests/simple/build /Users/kyungminlee/Code/crux-cpp/tests/simple/build /Users/kyungminlee/Code/crux-cpp/tests/simple/build/CMakeFiles/simple.dir/DependInfo.cmake "--color=$(COLOR)" simple
 .PHONY : CMakeFiles/simple.dir/depend
 

@@ -1,4 +1,8 @@
-c:@S@Circle,c:@S@Shape,public
-c:@S@Rectangle,c:@S@Shape,public
-c:@S@Triangle,c:@S@Shape,public
-usr,parent_usr,visibility
+c:@S@Circle,Circle,/Users/kyungminlee/Code/crux-cpp/tests/simple/shapes.hpp,22,31
+c:@S@Rectangle,Rectangle,/Users/kyungminlee/Code/crux-cpp/tests/simple/shapes.hpp,33,43
+c:@S@Shape,Shape,/Users/kyungminlee/Code/crux-cpp/tests/simple/shapes.hpp,5,18
+c:@S@Triangle,Triangle,/Users/kyungminlee/Code/crux-cpp/tests/simple/shapes.hpp,46,54
+c:@ST>1#T@Pair,Pair,/Users/kyungminlee/Code/crux-cpp/tests/simple/storage.hpp,40,59
+c:@ST>1#T@Pair,Pair,/Users/kyungminlee/Code/crux-cpp/tests/simple/storage.hpp,6,35
+c:@ST>1#T@Pair,Pair,/Users/kyungminlee/Code/crux-cpp/tests/simple/storage.hpp,72,85
+usr,name,file,start,end
