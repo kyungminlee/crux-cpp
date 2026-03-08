@@ -1,3 +1,4 @@
+usr,canonical_usr,fully_qualified_name,filename,start,end
 c:@S@Circle,c:@S@Circle,Circle,shapes.hpp,22,31
 c:@S@Pair>#*I,c:@ST>1#T@Pair,Pair,storage.hpp,72,85
 c:@S@Pair>#I,c:@ST>1#T@Pair,Pair,storage.hpp,6,35
@@ -8,4 +9,3 @@ c:@S@Shape,c:@S@Shape,Shape,shapes.hpp,5,18
 c:@S@Triangle,c:@S@Triangle,Triangle,shapes.hpp,46,54
 c:@SP>1#T@Pair>#*t0.0,c:@SP>1#T@Pair>#*t0.0,Pair,storage.hpp,72,85
 c:@ST>1#T@Pair,c:@ST>1#T@Pair,Pair,storage.hpp,6,35
-usr,canonical_usr,fully_qualified_name,filename,start,end

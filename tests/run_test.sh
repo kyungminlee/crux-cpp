@@ -5,4 +5,5 @@ set -euo pipefail
 TOOL=$1; EXPECTED=$2; BUILD=$3; ROOT=$4
 shift 4
 
-diff "$EXPECTED" <("$TOOL" "$@" --build "$BUILD" --root "$ROOT" 2>/dev/null | sort -u)
+diff "$EXPECTED" <("$TOOL" "$@" --build "$BUILD" --root "$ROOT" 2>/dev/null | \
+    { IFS= read -r header; printf '%s\n' "$header"; sort -u; })

@@ -1,0 +1,13 @@
+usr,parent_usr
+c:@S@Circle@F@area#1,c:@S@Shape@F@area#1
+c:@S@Circle@F@perimeter#1,c:@S@Shape@F@perimeter#1
+c:@S@Circle@F@scale#d#,c:@S@Shape@F@scale#d#
+c:@S@Circle@F@scale#d#d#,c:@S@Shape@F@scale#d#d#
+c:@S@Rectangle@F@area#1,c:@S@Shape@F@area#1
+c:@S@Rectangle@F@perimeter#1,c:@S@Shape@F@perimeter#1
+c:@S@Rectangle@F@scale#d#,c:@S@Shape@F@scale#d#
+c:@S@Rectangle@F@scale#d#d#,c:@S@Shape@F@scale#d#d#
+c:@S@Triangle@F@area#1,c:@S@Shape@F@area#1
+c:@S@Triangle@F@perimeter#1,c:@S@Shape@F@perimeter#1
+c:@S@Triangle@F@scale#d#,c:@S@Shape@F@scale#d#
+c:@S@Triangle@F@scale#d#d#,c:@S@Shape@F@scale#d#d#

@@ -4,3 +4,4 @@
 tests/simple/build/
 __pycache__/
 *.pyc
+.cache
