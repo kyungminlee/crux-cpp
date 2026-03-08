@@ -61,6 +61,11 @@ bool fd_in_root(const clang::FunctionDecl *fd,
     return loc.isValid() && under_root(sm.getFilename(loc).str(), root);
 }
 
+const clang::FunctionDecl* get_canonical(const clang::FunctionTemplateDecl * FTD) {
+    if (!FTD) return nullptr;
+    return get_canonical(FTD->getTemplatedDecl());
+}
+
 const clang::FunctionDecl* get_canonical(const clang::FunctionDecl* FD) {
     if (!FD) return nullptr;
 
@@ -94,6 +99,11 @@ const clang::FunctionDecl* get_canonical(const clang::FunctionDecl* FD) {
         Current = Next;
     }
     return Current->getFirstDecl();
+}
+
+const clang::CXXRecordDecl * get_canonical(const clang::ClassTemplateDecl * CTD) {
+    if (!CTD) return nullptr;
+    return get_canonical(CTD->getTemplatedDecl());
 }
 
 const clang::CXXRecordDecl* get_canonical(const clang::CXXRecordDecl* RD) {

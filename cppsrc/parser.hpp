@@ -31,6 +31,8 @@ std::string get_usr(const clang::Decl *decl);
 
 const clang::FunctionDecl* get_canonical(const clang::FunctionDecl* fd);
 const clang::CXXRecordDecl* get_canonical(const clang::CXXRecordDecl* rd);
+const clang::CXXRecordDecl * get_canonical(const clang::ClassTemplateDecl * CTD);
+const clang::FunctionDecl * get_canonical(const clang::FunctionTemplateDecl * CTD);
 
 // ── Source location ───────────────────────────────────────────────────────────
 
