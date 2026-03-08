@@ -88,7 +88,7 @@ int main(int argc, char *argv[]) {
     llvm::llvm_shutdown_obj shutdown_guard;
     try {
         std::set<std::string> seen;
-        return run_tool(argc, argv, "usr,canonical_usr,fully_qualified_name,filename,start,end",
+        return run_tool(argc, argv, "usr,canonical_usr,fully_qualified_name,filename,start_line,end_line",
             [&seen](const fs::path &root, llvm::raw_ostream &out) {
                 return std::make_unique<ClassAction>(root, seen, out);
             });

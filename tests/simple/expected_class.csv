@@ -1,4 +1,4 @@
-usr,canonical_usr,fully_qualified_name,filename,start,end
+usr,canonical_usr,fully_qualified_name,filename,start_line,end_line
 c:@S@Circle,c:@S@Circle,Circle,shapes.hpp,22,31
 c:@S@Pair>#*I,c:@ST>1#T@Pair,Pair,storage.hpp,72,85
 c:@S@Pair>#I,c:@ST>1#T@Pair,Pair,storage.hpp,6,35
