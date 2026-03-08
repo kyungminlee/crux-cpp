@@ -23,7 +23,7 @@ class CallVisitor : public clang::RecursiveASTVisitor<CallVisitor> {
     std::set<std::string> &seen_;
     llvm::raw_ostream &out_;
 
-    void emit(const clang::Decl *callee_decl) {
+    void emit(const clang::FunctionDecl *callee_decl) {
         if (caller_stack_.empty()) return;
         const std::string &caller = caller_stack_.back();
         if (caller.empty()) return;
